@@ -1,0 +1,147 @@
+.codeeditorpopupChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xl);
+  background-color: var(--color-gray-200);
+  width: 455px;
+  height: 371px;
+}
+.newFileDetails {
+  position: absolute;
+  top: 52px;
+  left: 149px;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+.div,
+.enterFileName {
+  position: absolute;
+  top: 103px;
+  left: 52px;
+  font-weight: 500;
+}
+.div {
+  top: 144px;
+  left: 323px;
+  font-weight: 600;
+  display: inline-block;
+  width: 8px;
+}
+.codeeditorpopupItem {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 133px;
+  left: 52px;
+  border-radius: var(--br-8xs);
+  background: linear-gradient(#4c4863, #4c4863),
+    linear-gradient(#4c4863, #4c4863), linear-gradient(#4c4863, #4c4863),
+    #4c4863;
+  width: 263px;
+  height: 26px;
+}
+.chooselanguagedropdown,
+.or,
+.uploadAFile {
+  position: absolute;
+  top: 135px;
+  left: 335px;
+}
+.or,
+.uploadAFile {
+  top: 178px;
+  left: 217px;
+  font-weight: 600;
+}
+.uploadAFile {
+  top: 201px;
+  left: 52px;
+  font-weight: 500;
+}
+.codeeditorpopupInner {
+  position: absolute;
+  top: 232px;
+  left: 52px;
+  border-radius: var(--br-8xs);
+  background-color: #4c4863;
+  width: 356px;
+  height: 26px;
+}
+.save {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  width: 92px;
+  flex-shrink: 0;
+}
+.button,
+.buttonsave {
+  position: absolute;
+  width: 76px;
+  height: 28px;
+}
+.button {
+  top: 0;
+  left: 0;
+  border-radius: 29.45px;
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 180px #9917ff, 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset,
+    0 2px 1px rgba(255, 255, 255, 0.25) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-31xl);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.button:active {
+  background: linear-gradient(
+      rgba(153, 117, 232, 0.91),
+      rgba(153, 117, 232, 0.91)
+    ),
+    radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+}
+.buttonsave {
+  top: 298px;
+  left: calc(50% - 142.5px);
+  border-radius: var(--br-3xs);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+.buttoncancel,
+.pagecrossIcon {
+  position: absolute;
+  cursor: pointer;
+}
+.buttoncancel {
+  top: 298px;
+  left: calc(50% + 44.5px);
+  border-radius: var(--br-3xs);
+  width: 76px;
+  height: 28px;
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+.pagecrossIcon {
+  top: 35px;
+  left: 414px;
+  width: 9px;
+  height: 9px;
+}
+.codeeditorpopup {
+  position: relative;
+  width: 455px;
+  height: 371px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: left;
+  font-size: var(--font-size-smi);
+  color: var(--white-default);
+  font-family: var(--font-poppins);
+}

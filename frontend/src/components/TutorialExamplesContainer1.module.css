@@ -1,0 +1,18 @@
+.tutorialExamples {
+  position: absolute;
+  top: -50px;
+  right: 158px;
+  display: inline-block;
+  width: 279px;
+}
+.tutorialexamples {
+  position: absolute;
+  top: 390px;
+  left: 685px;
+  width: 437px;
+  height: 332px;
+  text-align: justify;
+  font-size: var(--font-size-6xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

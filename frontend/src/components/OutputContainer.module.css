@@ -1,0 +1,218 @@
+.mainjs {
+  position: relative;
+  font-weight: 500;
+}
+.file {
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-base);
+  gap: var(--gap-9xs);
+  top: 6px;
+  height: 39px;
+  cursor:pointer;
+
+}
+.file:hover {
+  background-color: var(--white-transparent-10);
+}
+
+.file.selected {
+  background-color: var(--white-transparent-10);
+}
+
+.code {
+  top: 6px;
+  left: 0;
+  background-color: var(--color-gray-400);
+  width: 548px;
+  height: 33px;
+}
+.code {
+  top: 40px;
+  background-color: var(--color-gray-300);
+  height: 610px;
+}
+.outputWrapper {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.iconLineclose {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+.frameGroup {
+  width: 492px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbarFiles {
+  background-color: #201B3A;
+}
+.frameChild {
+  align-self: stretch;
+  height: 99px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.frameParent,
+.main {
+  position: relative;
+  left: 0;
+}
+.frameParent {
+  top: 643px;
+  border-top: 2px solid var(--color-darkslategray-300);
+  box-sizing: border-box;
+  width: 548px;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xl) var(--padding-9xl);
+  gap: var(--gap-3xs);
+  font-size: var(--font-size-base);
+  color: var(--color-lightslategray);
+  background-color: #120C31;
+}
+/* Adjust your existing .main component styles */
+.main {
+  position: relative; 
+  width: 100%;
+  right: 0;
+  height: 865px;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-poppins);
+}
+
+.objectify {
+  position: relative;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  font-family: var(--font-poppins);
+}
+.icPlayArrow48pxIcon {
+  position: relative;
+  width: 15.4px;
+  height: 15.4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.explorebutton {
+  cursor: pointer;
+  border: 0;
+  padding: 4.3333330154418945px 15.166666030883789px;
+  background-color: var(--color-darkorange);
+  position: absolute;
+  top: 9px;
+  left: 420px;
+  border-radius: 5.78px;
+  box-shadow: 0 0 7.22px rgba(255, 255, 255, 0.5) inset;
+  width: 104.7px;
+  height: 26px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 7.22px;
+}
+.vectorIcon,
+.vectorIcon1 {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vectorIcon1 {
+  height:90.5%;
+  width: 75.5%;
+  top: 8.5%;
+  right: 17%;
+  bottom: 8%;
+  left: 16.5%;
+}
+
+.js {
+  position: absolute;
+  top: 49%;
+  left: 25%;
+  line-height: 8px;
+  font-size: xx-small;
+  color: black;
+}
+.icon,
+.mainjs {
+  position: relative;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.mainjs {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  font-family: var(--font-poppins);
+
+}
+.main{
+  left:90px;
+}
+
+.defaultOutputContainer{
+  position: absolute;
+  top: 3px ;
+  bottom: 8px;
+  left: 90px;
+  width: 548px;
+}
+.customOutputContainer{
+
+  top: 23px ;
+  bottom: 8px;
+  left: 0px;
+  width: 548px;
+}
+
+.fileContainer, .frame {
+  display: flex;
+  max-width: 400px;
+  overflow-x: auto;  /* Enable horizontal scrolling */
+  white-space: nowrap; 
+}
+
+.fileContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.fileContainer {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+.pagecrossIcon {
+  cursor: pointer;
+margin-left:10px;
+margin-right:-10px
+}

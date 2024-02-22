@@ -1,0 +1,124 @@
+@keyframes shadow-drop-bottom {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+    to {
+      box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+    }
+  }
+  .classobjectstutcardChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-6xl);
+    background-color: var(--color-darkslategray-300);
+    width: 200px;
+    height: 240px;
+  }
+  .classobjectstutcardItem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-xl) var(--br-xl) 0 0;
+    background: linear-gradient(96.5deg, #ca6caf 36.98%, #a53c9e);
+    width: 200px;
+    height: 126px;
+  }
+  .aClassIs {
+    position: absolute;
+    top: 161px;
+    left: 19px;
+    font-size: var(--font-size-2xs);
+    line-height: 100%;
+    font-weight: 500;
+    color: var(--color-darkgray);
+    display: inline-block;
+    width: 152px;
+    height: 59px;
+  }
+  .classobjectstutcardInner {
+    position: absolute;
+    top: 109px;
+    left: 8px;
+    border-radius: var(--br-21xl);
+    background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff),
+      linear-gradient(#fff, #fff), #fff;
+    width: 181.4px;
+    height: 6px;
+  }
+  .classesAndObjects,
+  .div {
+    position: absolute;
+    top: 93px;
+    left: 8px;
+    line-height: 110%;
+    font-weight: 500;
+  }
+  .classesAndObjects {
+    top: 141px;
+    left: 20px;
+  }
+  .java,
+  .javaWrapper {
+    display: flex;
+    align-items: center;
+  }
+  .java {
+    position: relative;
+    line-height: 8px;
+    justify-content: center;
+    width: 30px;
+  }
+  .javaWrapper {
+    position: absolute;
+    top: 26px;
+    left: 16px;
+    border-radius: var(--br-8xs);
+    background-color: var(--color-white);
+    width: 40px;
+    height: 17px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--padding-9xs) var(--padding-7xs) var(--padding-7xs);
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--font-size-3xs);
+    color: var(--color-midnightblue-300);
+    font-family: var(--font-pt-sans);
+  }
+  .classobjectstutcard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 240px;
+    cursor: pointer;
+  }
+  .classobjectstutcard:hover {
+    filter: drop-shadow(0 4px 4px rgba(165, 60, 158, 0.7));
+    animation: 1s ease 0s infinite normal none shadow-drop-bottom;
+    opacity: 1;
+  }
+  .continuejourneycards {
+    /* overflow-y: auto; */
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    margin: 0;
+    margin-top:20px;
+    justify-self: stretch;
+    text-align: left;
+    font-size: var(--font-size-xs);
+    color: var(--color-white);
+    font-family: var(--font-poppins);
+  }
+  .continuejourneycards:hover {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-content: stretch;
+  }
+  

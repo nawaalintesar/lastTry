@@ -1,0 +1,691 @@
+Inheritance
+//Tutorial Description
+A guide illustrating how to create new classes by inheriting attributes and behaviors from existing classes, promoting code reuse. Inheritance is like passing on characteristics from a parent to a child. In OOP, it's a mechanism where a new class (child) can inherit properties and behaviors from an existing class (parent). Think of it like a family tree, where children inherit certain traits from their parents. This promotes code reusability and establishes a relationship between classes.
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Vehicle.java
+class Vehicle {
+    String brand;
+}
+***
+Car.java
+class Car extends Vehicle {
+    int wheels;
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of the Vehicle class
+        Vehicle vehicle = new Vehicle();
+        vehicle.brand = "Toyota";
+
+        // Create an instance of the Car class
+        Car car = new Car();
+        car.brand = "Honda";
+        car.wheels = 4;
+
+        // Display information about the Vehicle
+        System.out.println("Vehicle Brand: " + vehicle.brand);
+
+        // Display information about the Car
+        System.out.println("Car Brand: " + car.brand);
+        System.out.println("Number of Wheels: " + car.wheels);
+    }
+}
+
+
+//Steps
+Step 1: First we create a class vehicle with an attribute of brand of type string.
+Step 2: Then we create another class called car which extends class vehicle, car class has 2 attributes brand which it inherits from vehicle and wheels. Extend is a keyword used to establish inheritance, allowing a subclass to inherit characteristics (methods and fields) from a single superclass.he superclass-subclass relationship is also referred to as a parent-child relationship since children inherit characteristics and features from their parents.
+Step 3: Within the main class we create an object of type vehile, and defining its brand as honda. 
+Step 4: Then we create an instance of car, with  brand as honda and wheels as 4. Then we print the attributes of both car and vehicle
+
+------------------------------
+//Level 2- Java
+//Code
+***
+Shape.java
+// Base class representing a generic shape
+class Shape {
+    String color;
+
+    // Constructor to initialize color
+    Shape(String color) {
+        this.color = color;
+    }
+
+    // Method to draw a generic shape
+    void draw() {
+        System.out.println("Drawing a generic shape");
+    }
+}
+***
+Circle.java
+// Subclass representing a specific shape - Circle
+class Circle extends Shape {
+    double radius;
+
+    // Constructor to initialize color and radius
+    Circle(String color, double radius) {
+        // Call the constructor of the base class (Shape)
+        super(color);
+        this.radius = radius;
+    }
+
+    // Override the draw method to provide a specialized implementation for circles
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle with color " + color + " and radius " + radius);
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of the Shape class
+        Shape shape = new Shape("Red");
+
+        // Create an instance of the Circle class
+        Circle circle = new Circle("Blue", 5.0);
+
+        // Test the draw method of the Shape class (generic shape)
+        shape.draw();  // Output: Drawing a generic shape
+
+        // Test the draw method of the Circle class (specialized for circles)
+        circle.draw();  // Output: Drawing a circle with color Blue and radius 5.0
+    }
+}
+
+
+
+//Steps
+Step 1: Initially we define a class named Shape representing a general shape. Contains an attribute color to store the color of the shape. Includes a constructor Shape(String color) to initialize the color attribute. Provides a draw() method to display a generic message indicating drawing a shape 
+Step 2: Then we create a Circle class inheriting from Shape. Inherits the color attribute and draw() method from the Shape class. Adds a radius attribute specific to circles.
+Step 3: Within the circle class we have a constructor Circle(String color, double radius) that initializes both color from the parent and radius for the circle. Overrides the draw() method from Shape to provide a specific implementation for drawing a circle, displaying its radius.
+------------------------------
+
+//Level 3- Java
+//Code
+***
+Person.java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public abstract class Person implements Comparable<Person> {
+    private int id;
+    private String name;
+    private int age;
+    private String department;
+
+    public Person() {
+        this(0, "unknown name", 0, "unknown department");
+    }
+
+    public Person(int id, String name, int age, String department) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.department = department;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public abstract boolean hasAccess();
+
+    @Override
+    public String toString() {
+        return "id= " + id +
+                ", name= " + name +
+                ", age= " + age +
+                ", department= " + department;
+    }
+
+    public int compareTo(Person p) {
+        return Integer.compare(this.id, p.id);
+    }
+}
+***
+Manager.java
+public class Manager extends Person {
+
+    public Manager() {
+        super();
+    }
+
+    public Manager(int id, String name, int age, String department) {
+        super(id, name, age, department);
+    }
+
+    public boolean hasAccess() {
+        return true;
+    }
+
+    public void displayCredentials() {
+        Scanner input = null;
+
+        try {
+            input = new Scanner(new File("Manager.txt"));
+            while (input.hasNextLine()) {
+                Manager manager = new Manager();
+                manager.setId(input.nextInt());
+                manager.setName(input.next());
+                manager.setAge(input.nextInt());
+                manager.setDepartment(input.next());
+                System.out.println(manager.toString());
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found");
+        } finally {
+            System.out.println("Thank you");
+            if (input != null) {
+                input.close();
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Manager) {
+            Manager m = (Manager) o;
+            return this.getId() == m.getId();
+        }
+        return false;
+    }
+}
+***
+Employee.java
+public class Employee extends Person {
+
+    public Employee() {
+        super();
+    }
+
+    public Employee(int id, String name, int age, String department) {
+        super(id, name, age, department);
+    }
+
+    public boolean hasAccess() {
+        return false;
+    }
+
+    public void displayCredentials() {
+        Scanner input = null;
+
+        try {
+            input = new Scanner(new File("Employee.txt"));
+            while (input.hasNext()) {
+                Employee employee = new Employee(0, "unknown", 0, "unknown");
+                employee.setId(input.nextInt());
+                employee.setName(input.next());
+                employee.setAge(input.nextInt());
+                employee.setDepartment(input.next());
+
+                System.out.println(employee.toString());
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found");
+        } finally {
+            System.out.println("Thank you");
+            if (input != null) {
+                input.close();
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        Manager manager = new Manager(1, "John Manager", 35, "HR");
+        Employee employee = new Employee(101, "Jane Employee", 28, "IT");
+
+        // Displaying information using toString method
+        System.out.println("Manager Info:");
+        System.out.println(manager.toString());
+
+        System.out.println("\nEmployee Info:");
+        System.out.println(employee.toString());
+
+        // Displaying credentials using displayCredentials method
+        System.out.println("\nManager Credentials:");
+        manager.displayCredentials();
+
+        System.out.println("\nEmployee Credentials:");
+        employee.displayCredentials();
+    }
+}
+
+
+//Steps
+Step 1: Initially we create an abstract class called person having attributes like id,name,age and department. Then we define both getters and setters for each value. Getters allow us to get values from within classes and setters allow us to set values within a class. It also has an abstract method called hasAccess which will be implemented by its subclasses. This class is overriding the original toString method and providing its own format for the tostring function
+Step 2: We have a Manager class which extends the class person. So the Manager class inherits attributes and methods from the class person. Class method provides its own implementation of the hasAccess abstract function.The output of the hasAccess will be true in the manager class.
+Class manager also has its own function called displayCredentials which is unique to its own class to display manager credentials from a manager.txt file. It also has an equals() function to compare managers based on their IDs.
+It also overrides the toString function to make it different from the standard printing format
+Step 3: Then we create another class called Employee which extends the class person, so it inherits all its attributes and methods. It overrides the hasAccess() method the output of the hasAccess will be false in the employee class and it also contains a unique displayCredentials which displays employee credentials from an employee.txt file. It also has its own unique implementation of the toString function.
+Step 4: Within the main class we create an instance of manager and employee , we use the displayInformation and we see that the output for both of them are different and we also run the toString function and we see that both the toString will also have different output. 
+------------------------------
+//Level 1- Python
+//Code
+***
+main.py
+# Define the Vehicle class
+class Vehicle:
+    def __init__(self):
+        self.brand = ""
+
+# Define the Car class, which inherits from Vehicle
+class Car(Vehicle):
+    def __init__(self):
+        super().__init__()
+        self.wheels = 4
+
+# Create an instance of the Vehicle class
+vehicle = Vehicle()
+vehicle.brand = "Toyota"
+
+# Create an instance of the Car class
+car = Car()
+car.brand = "Honda"
+
+# Display information about the Vehicle
+print("Vehicle Brand:", vehicle.brand)
+
+# Display information about the Car
+print("Car Brand:", car.brand)
+print("Number of Wheels:", car.wheels)
+
+
+
+//Steps
+Step 1: Initially we define a base class called Vehice representing a general vehicle.The __init__ method initializes an instance of Vehicle with an attribute brand set to an empty string. This class sets up a basic structure for a vehicle without specifying any specific details. 
+Step 2: Then we define a subclass called Car which inherits from Vehicle class. super().__init__() calls the constructor of the parent class (Vehicle) to initialize the inherited attributes. Adds an attribute wheels specific to cars, setting it to 4. By inheriting from Vehicle, Car inherits the attribute brand and extends its functionality by including the attribute wheels.
+------------------------------
+
+
+
+//Level 2- Python
+//Code
+***
+main.py
+class Shape:
+    def __init__(self, color):
+        self.color = color
+
+    def draw(self):
+        print("Drawing a generic shape")
+
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
+
+    def draw(self):
+        print(f"Drawing a circle with color {self.color} and radius {self.radius}")
+
+# Create an instance of the Shape class
+shape = Shape("Red")
+
+# Create an instance of the Circle class
+circle = Circle("Blue", 5.0)
+
+# Test the draw method of the Shape class (generic shape)
+shape.draw()  # Output: Drawing a generic shape
+
+# Test the draw method of the Circle class (specialized for circles)
+circle.draw()  # Output: Drawing a circle with color Blue and radius 5.0
+
+
+
+//Steps
+Step 1: Initially we define a class named Shape representing a general shape. def __init__(self, color) helps in initializing a color attribute for the shape.
+The class contains a draw() method to display a generic message indicating the drawing of a shape.
+Step 2: Then we have a class circle inheriting from shape. It inherits the color attribute and draw() method from the Shape class. def __init__(self, color, radius) helps in initializing both the color from the parent and a specific radius for the circle. Overrides the draw() method inherited from Shape to provide a specialized implementation for drawing a circle, displaying its radius.
+------------------------------
+
+
+//Level 3- Python
+//Code
+***
+main.py
+class Person:
+    def __init__(self, id, name, age, department):
+        self.id = id
+        self.name = name
+        self.age = age
+        self.department = department
+
+    def has_access(self):
+        pass
+
+    def __str__(self):
+        return f"id= {self.id}, name= {self.name}, age= {self.age}, department= {self.department}"
+
+    def __eq__(self, other):
+        if isinstance(other, Manager):
+            return self.id == other.id
+        return False
+
+
+class Manager(Person):
+    def __init__(self, id, name, age, department):
+        super().__init__(id, name, age, department)
+
+    def has_access(self):
+        return True
+
+    def display_credentials(self):
+        try:
+            with open("Manager.txt", 'r') as file:
+                for line in file:
+                    data = line.split()
+                    manager = Manager(int(data[0]), data[1], int(data[2]), data[3])
+                    print(manager)
+        except FileNotFoundError:
+            print("File not found")
+        finally:
+            print("Thank you")
+
+
+class Employee(Person):
+    def __init__(self, id, name, age, department):
+        super().__init__(id, name, age, department)
+
+    def has_access(self):
+        return False
+
+    def display_credentials(self):
+        try:
+            with open("Employee.txt", 'r') as file:
+                for line in file:
+                    data = line.split()
+                    employee = Employee(int(data[0]), data[1], int(data[2]), data[3])
+                    print(employee)
+        except FileNotFoundError:
+            print("File not found")
+        finally:
+            print("Thank you")
+
+
+if __name__ == "__main__":
+    manager = Manager(1, "John Manager", 35, "HR")
+    employee = Employee(101, "Jane Employee", 28, "IT")
+
+    # Displaying information using __str__ method
+    print("Manager Info:")
+    print(manager)
+
+    print("\nEmployee Info:")
+    print(employee)
+
+    # Displaying credentials using display_credentials method
+    print("\nManager Credentials:")
+    manager.display_credentials()
+
+    print("\nEmployee Credentials:")
+    employee.display_credentials()
+
+
+//Steps
+Step 1: Initally we create an class called person having attributes like id,name,age and department. Then we define a has_access() function. It also has a method called str for printing the string and another method called eq for checking the Id between person and manager objects.
+Step 2: Both manager and employee class inherit from person class, both the classes recive the attributes and methods of the class person. Both these classes ovverride the hasAccess function , manages have access so their value is true while employees dont so their value is flase.
+It also overrides the toString function to make it different from the standard printing fromat
+Step 3: The main function create instance of manager and employee and prints theor data using the str function.
+------------------------------
+
+//Level 1- C++
+//Code
+***
+main.cpp
+# Define the Vehicle class
+class Vehicle:
+    def __init__(self):
+        self.brand = ""
+
+# Define the Car class, which inherits from Vehicle
+class Car(Vehicle):
+    def __init__(self):
+        super().__init__()
+        self.wheels = 4
+
+# Create an instance of the Vehicle class
+vehicle = Vehicle()
+vehicle.brand = "Toyota"
+
+# Create an instance of the Car class
+car = Car()
+car.brand = "Honda"
+
+# Display information about the Vehicle
+print("Vehicle Brand:", vehicle.brand)
+
+# Display information about the Car
+print("Car Brand:", car.brand)
+print("Number of Wheels:", car.wheels)
+
+
+//Steps
+Step 1: Initially we define a class named Vehicle representing a general vehicle. This is the super class. It has a public attribute brand of type std::string. This class serves as a blueprint for vehicles with a brand attribute.
+Step 2: Then we define a Car class that publicly inherits from the Vehicle class. This makes it a sub class of Vehicle. Class car has an attribute wheel specific to cars, as vehicles could mean any vehicle as a ship. 
+Step 3: The superclass-subclass relationship is also referred to as a parent-child relationship since children inherit characteristics and features from their parents.By inheriting publicly, a Car object inherits the brand attribute from the Vehicle class. Instances of Car contain both the brand attribute inherited from Vehicle and the specific wheels attribute.
+
+------------------------------
+//Level 2- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <string>
+
+// Base class representing a generic shape
+class Shape {
+public:
+    std::string color;
+
+    // Constructor to initialize color
+    Shape(std::string color) : color(color) {}
+
+    // Method to draw a generic shape
+    void draw() {
+        std::cout << "Drawing a generic shape" << std::endl;
+    }
+};
+
+// Subclass representing a specific shape - Circle
+class Circle : public Shape {
+public:
+    double radius;
+
+    // Constructor to initialize color and radius
+    Circle(std::string color, double radius) : Shape(color), radius(radius) {}
+
+    // Override the draw method to provide a specialized implementation for circles
+    void draw() override {
+        std::cout << "Drawing a circle with color " << color << " and radius " << radius << std::endl;
+    }
+};
+
+int main() {
+    // Create an instance of the Shape class
+    Shape shape("Red");
+
+    // Create an instance of the Circle class
+    Circle circle("Blue", 5.0);
+
+    // Test the draw method of the Shape class (generic shape)
+    shape.draw();  // Output: Drawing a generic shape
+
+    // Test the draw method of the Circle class (specialized for circles)
+    circle.draw();  // Output: Drawing a circle with color Blue and radius 5.0
+
+    return 0;
+}
+
+
+
+//Steps
+Step 1: Initially we define a class named Shape representing a general shape. It had a protected attribute color of type std::string to store the color of the shape.
+It contains a constructor Shape(const std::string& color) that initializes the color attribute. It also has a virtual method draw() that prints a generic message indicating drawing a shape.
+Step 2: Then we have a class circle inheriting from shape. Inherits the color attribute from Shape. Includes a private attribute radius of type double specific to circles.
+Contains a constructor Circle(const std::string& color, double radius) that initializes both the color from the parent class and the radius for the circle. Overrides the draw() method inherited from Shape to provide a specialized implementation for drawing a circle, displaying its radius. 
+------------------------------
+
+
+//Level 3- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <fstream>
+
+class Person {
+protected:
+    int id;
+    std::string name;
+    int age;
+    std::string department;
+
+public:
+    Person(int id, const std::string& name, int age, const std::string& department)
+        : id(id), name(name), age(age), department(department) {}
+
+    virtual bool hasAccess() = 0;
+
+    friend std::ostream& operator<<(std::ostream& os, const Person& person) {
+        os << "id= " << person.id << ", name= " << person.name << ", age= " << person.age
+           << ", department= " << person.department;
+        return os;
+    }
+
+    virtual ~Person() = default;
+};
+
+class Manager : public Person {
+public:
+    Manager(int id, const std::string& name, int age, const std::string& department)
+        : Person(id, name, age, department) {}
+
+    bool hasAccess() override {
+        return true;
+    }
+
+    void displayCredentials() {
+        std::ifstream file("Manager.txt");
+        if (file.is_open()) {
+            int id;
+            std::string name;
+            int age;
+            std::string department;
+
+            while (file >> id >> name >> age >> department) {
+                Manager manager(id, name, age, department);
+                std::cout << manager << std::endl;
+            }
+            file.close();
+        } else {
+            std::cout << "File not found" << std::endl;
+        }
+
+        std::cout << "Thank you" << std::endl;
+    }
+};
+
+class Employee : public Person {
+public:
+    Employee(int id, const std::string& name, int age, const std::string& department)
+        : Person(id, name, age, department) {}
+
+    bool hasAccess() override {
+        return false;
+    }
+
+    void displayCredentials() {
+        std::ifstream file("Employee.txt");
+        if (file.is_open()) {
+            int id;
+            std::string name;
+            int age;
+            std::string department;
+
+            while (file >> id >> name >> age >> department) {
+                Employee employee(id, name, age, department);
+                std::cout << employee << std::endl;
+            }
+            file.close();
+        } else {
+            std::cout << "File not found" << std::endl;
+        }
+
+        std::cout << "Thank you" << std::endl;
+    }
+};
+
+int main() {
+    Manager manager(1, "John Manager", 35, "HR");
+    Employee employee(101, "Jane Employee", 28, "IT");
+
+    // Displaying information using overloaded << operator
+    std::cout << "Manager Info:" << std::endl;
+    std::cout << manager << std::endl;
+
+    std::cout << "\nEmployee Info:" << std::endl;
+    std::cout << employee << std::endl;
+
+    // Displaying credentials using displayCredentials method
+    std::cout << "\nManager Credentials:" << std::endl;
+    manager.displayCredentials();
+
+    std::cout << "\nEmployee Credentials:" << std::endl;
+    employee.displayCredentials();
+
+    return 0;
+}
+
+
+
+//Steps
+------------------------------
+

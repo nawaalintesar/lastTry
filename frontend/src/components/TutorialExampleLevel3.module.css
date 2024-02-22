@@ -1,0 +1,58 @@
+.creatingAnimalObjects {
+  position: absolute;
+  height: 27.27%;
+  width: 65.9%;
+  top: 22.08%;
+  left: 8.01%;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+}
+.learnHowTo {
+  margin: 0;
+}
+.learnHowToContainer {
+  position: absolute;
+  height: 44.16%;
+  width: 64.53%;
+  top: 55.32%;
+  left: 7.92%;
+  font-size: var(--font-size-2xs);
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+}
+.vectorIcon {
+  position: absolute;
+  height: 17.27%;
+  width: 3.04%;
+  top: 40.65%;
+  right: 5.58%;
+  bottom: 42.08%;
+  left: 91.37%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.property1default {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-darkslategray-100);
+  border-radius: var(--br-3xs);
+  width: 437px;
+  height: 77px;
+}
+.property1default:hover {
+  background-color: var(--color-midnightblue-700);
+  border: 1px solid var(--color-white);
+  box-sizing: border-box;
+}
+.property1default:active {
+  background-color: var(--color-mediumblue);
+}

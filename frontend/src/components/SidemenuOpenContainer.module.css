@@ -1,0 +1,136 @@
+.layoutgrid4Icon {
+  position: absolute;
+  top: 6.6px;
+  left: 8px;
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+}
+.dashboard {
+  position: absolute;
+  top: 9.1px;
+  left: 53px;
+  font-weight: 500;
+}
+.dashboardsm {
+  position: relative;
+  border-radius: var(--br-6xs);
+  width: 151px;
+  height: 41px;
+  cursor: pointer;
+}
+.dashboardsm:hover,
+.myprojectsm:hover,
+.mytutorialsm:hover,
+.usericon1:hover {
+  background-color: var(--color-darkslateblue-100);
+}
+.interfaceEssentialbookIcon {
+  position: absolute;
+  top: 5.1px;
+  left: 4px;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.myTutorials {
+  position: absolute;
+  top: 9.6px;
+  left: 50px;
+  font-weight: 500;
+}
+.mytutorialsm {
+  position: relative;
+  border-radius: var(--br-6xs);
+  width: 151px;
+  height: 41.1px;
+  cursor: pointer;
+}
+.foldermultiFolderIcon {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+}
+.myProjects {
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  width: 86px;
+  flex-shrink: 0;
+}
+.foldermultiFolderParent {
+  position: absolute;
+  top: 7px;
+  left: 9px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-smi);
+}
+.myprojectsm,
+.usericon1 {
+  cursor: pointer;
+  border-radius: var(--br-6xs);
+}
+.myprojectsm {
+  position: relative;
+  width: 151px;
+  height: 41px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.usericon1 {
+  border: 0;
+  padding: 0;
+  background-color: var(--color-darkslateblue-200);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.usericonom {
+  position: absolute;
+  top: 5.8px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+}
+.usericon {
+  position: absolute;
+  top: 1.5px;
+  left: 6px;
+  width: 40px;
+  height: 38px;
+  cursor: pointer;
+}
+.dashboardsmParent,
+.userProfile {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.userProfile {
+  top: 10px;
+  left: 51px;
+  font-weight: 500;
+  width: 99px;
+}
+.dashboardsmParent {
+  top: 102px;
+  left: 20px;
+  width: 151px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-31xl);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-lightsteelblue-200);
+  font-family: var(--font-poppins);
+}

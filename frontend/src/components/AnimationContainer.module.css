@@ -1,0 +1,269 @@
+.animation,
+.frame,
+.vectorIcon,
+.vectorIcon1 {
+  position: absolute;
+  left: 0;
+  height: 670px;
+  overflow: hidden;
+
+}
+.greenBackground {
+  background-color: green;
+}
+
+.animation {
+top:20px;
+  right: 13px;
+  height:2500px;
+  background: linear-gradient(180deg, #18113c, #18113e);
+  border-left: 0.2px solid var(--color-gainsboro);
+  box-sizing: border-box;
+}
+.frame,
+.vectorIcon,
+.vectorIcon1 {
+  top: 45.4px;
+  width: 615px;
+}
+.vectorIcon,
+.vectorIcon1 {
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+.vectorIcon1 {
+  height: 83.5%;
+  width: 66.5%;
+  top: 8.5%;
+  right: 17%;
+  bottom: 8%;
+  left: 16.5%;
+}
+.js {
+  position: absolute;
+  top: 49%;
+  left: 25%;
+  line-height: 8px;
+}
+.icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.animation2 {
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  font-family: var(--font-poppins);
+  color: var(--white-transparent-80);
+}
+.animation1 {
+  background-color: var(--white-transparent-10);
+  width: 121px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-9xs);
+}
+.frameChild {
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-mediumseagreen);
+  width: 19.5px;
+  height: 19.5px;
+  z-index: 0;
+}
+.editPlus {
+  position: absolute;
+  margin: 0 !important;
+  top: 2.3px;
+  left: 2.3px;
+  width: 15.6px;
+  height: 15.6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.ellipseParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  gap: var(--gap-5xs-8);
+  cursor: pointer;
+}
+.frameItem {
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-indianred);
+  width: 19.2px;
+  height: 19.2px;
+}
+.ellipseWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 19.2px;
+  height: 19.2px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+.editMinus {
+  position: absolute;
+  margin: 0 !important;
+  flex-shrink: 0;
+  top: 2.3px;
+  left: 2.3px;
+  width: 15.4px;
+  height: 15.4px;
+  overflow: hidden;
+  z-index: 1;
+}
+.frameParent {
+  position: relative;
+  width: 19.2px;
+  height: 19.2px;
+}
+.undo {
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  font-family: var(--font-poppins);
+}
+.undoButtonIcon {
+  position: relative;
+  width: 17.5px;
+  height: 17.5px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.explorebutton,
+.explorebutton1 {
+  cursor: pointer;
+  border: 0;
+  background-color: var(--color-darkorange);
+  border-radius: 5.33px;
+  box-shadow: 0 0 6.67px rgba(255, 255, 255, 0.5) inset;
+  height: 26px;
+  overflow: hidden;
+  flex-shrink: 0;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: var(--padding-9xs) var(--padding-lg);
+  width: 88px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-6xs);
+}
+.disabled {
+  cursor: not-allowed;
+  background-color: grey;
+  color: #ffffff; /* Change the text color to white or any color that contrasts well with grey */
+}
+.explorebutton1 {
+  padding: var(--padding-9xs) var(--padding-sm);
+  width: 69px;
+}
+.explorebutton1,
+.saveButton,
+.topBarAnimation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* z-index: 3; */
+}
+
+
+.saveButton {
+  justify-content: stretch;
+  padding: var(--padding-9xs) var(--padding-sm);
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+  align-content: stretch;
+  /* z-index: 3; */
+
+}
+.topBarAnimation {
+  position: absolute;
+  top: 0;
+  width:800px;
+  background-color: #251849;
+
+  justify-content: flex-start;
+  gap: 280px;
+
+}
+.animationmain,
+.frame1 {
+  position: absolute;
+  width: 800px;
+}
+.frame1 {
+  top: 9px;
+  height: 34px;
+  overflow: hidden;
+  font-size: var(--font-size-6xs);
+  color: var(--black-transparent);
+}
+.animationmain {
+  left: 850px;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  font-family: var(--font-roboto);
+}
+
+.frame{
+  top:-10px;
+  width: 900px;
+  height: 900px;
+}
+
+.defaultAnimationContainer{
+  top:-2px;
+  width: 900px;
+  height: 900px;
+  left:850px;
+  position: relative;
+  /* top:10px;
+  right: 13px;
+  height:2500px;
+
+  left:850px;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  font-family: var(--font-roboto); */
+}
+
+.AnimationContainer{
+  top:-10px;
+  width: 900px;
+  height: 900px;
+  position: relative;
+
+  left: 750px;
+  
+}
+.arrowContainer{
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  margin-top: 250px;
+  width: 900px;
+  height: 800px;
+  
+}

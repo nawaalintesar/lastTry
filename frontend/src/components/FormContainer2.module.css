@@ -1,0 +1,17 @@
+.editMinus {
+  position: absolute;
+  top: 26px;
+  left: 1074px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  object-fit: cover;
+  cursor: pointer;
+}
+.projects {
+  position: absolute;
+  top: 400px;
+  left: 113px;
+  width: 1099px;
+  height: 330px;
+}

@@ -1,0 +1,260 @@
+.childBoxStyle {
+    position: relative;
+    background: rgba(255, 255, 255, 0.350);
+    /* boxShadow: 0 8px 32px 0 rgba(31, 38, 135, 0.30); */
+    box-shadow: 0px 4px 24px 1px rgba(35, 16, 94, 0.25);
+    backdrop-filter: blur(7.5px);
+    /* Use border-image for gradient border */
+    padding: 7px 40px 7px 40px;
+    /* border: 3px solid #F7B6DD; */
+    border: 3px solid;
+    border-radius: 9px;
+    border-image: linear-gradient(to bottom, #F7B6DD, #fff) 1; 
+    margin:3px 5px ;
+    font-family: var(--font-poppins);
+
+
+}
+
+.minus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: red;
+    font-size: 18px;
+    padding-right: 10px;
+}
+
+.defaultbox{
+    position: relative;
+    background: rgba(255, 255, 255, 0.350);
+    /* boxShadow: 0 8px 32px 0 rgba(31, 38, 135, 0.30); */
+    box-shadow: 0px 4px 24px 1px rgba(35, 16, 94, 0.25);
+    backdrop-filter: blur(7.5px);
+    /* Use border-image for gradient border */
+    padding: 7px 40px 7px 40px;
+    /* border: 3px solid #F7B6DD; */
+    border: 3px solid;
+    border-radius: 9px;
+    border-image: linear-gradient(to bottom, #000000, #fff) 1; 
+    margin:3px 5px ;
+    font-family: var(--font-poppins);
+}
+
+.CustomAttributes{
+    position: relative;
+    background: rgba(255, 255, 255, 0.350);
+    /* boxShadow: 0 8px 32px 0 rgba(31, 38, 135, 0.30); */
+    box-shadow: 0px 4px 24px 1px rgba(35, 16, 94, 0.25);
+    backdrop-filter: blur(7.5px);
+    /* Use border-image for gradient border */
+    padding: 7px 40px 7px 40px;
+    /* border: 3px solid #F7B6DD; */
+    border: 3px solid;
+    border-radius: 9px;
+    border-image: linear-gradient(to bottom, #0004e6, #fff) 1; 
+    margin:3px 5px ;
+    font-family: var(--font-poppins);
+}
+/* boxStyle */
+.boxStyle {
+    border-radius: 16px 16px 0px 0px;
+    border: 2px solid var(--box-border-color);
+    background-color: var(--box-background-color);
+    padding: 0px 0px 5px 0px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+    top: 300px;
+    right: 120px;
+    /* position: relative; */
+}
+
+
+
+/* addButtonStyle */
+.addButtonStyle {
+    cursor: pointer;
+    color: green;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.classBoxParent{
+    background-color: pink;
+    color: black;
+    font-weight: 600;
+    border-radius: 14px 14px 0px 0px;
+    padding: 7px;
+    font-family: var(--font-poppins);
+    text-align: center;
+    margin-top: 0px;
+}
+
+/*----------------------------------------------------------------------*/
+
+/* Scroll for attributes and methods*/
+.attributeScroll{
+    height:128px;
+    
+    overflow-y: auto;
+
+}
+.methodScroll{
+    height:128px;
+    overflow-y: auto; 
+}
+
+/* Customizing the Scroll for attributes and methods*/
+.attributeScroll::-webkit-scrollbar {
+    width: 10px;
+}
+.methodScroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*Track*/
+.attributeScroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+.methodScroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/*Handle*/
+.attributeScroll::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--custom-variable);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.methodScroll::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--custom-variable);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+.classBox {
+    background-color: pink;
+    color: black;
+    font-weight: 600;
+    border-radius: 14px 14px 0px 0px;
+    padding: 7px;
+    font-family: var(--font-poppins);
+    text-align: center;
+    margin-top: 0px;
+}
+
+.defaultbox{
+    position: relative;
+    background: rgba(255, 255, 255, 0.350);
+    /* boxShadow: 0 8px 32px 0 rgba(31, 38, 135, 0.30); */
+    box-shadow: 0px 4px 24px 1px rgba(35, 16, 94, 0.25);
+    backdrop-filter: blur(7.5px);
+    /* Use border-image for gradient border */
+    padding: 7px 40px 7px 40px;
+    /* border: 3px solid #F7B6DD; */
+    border: 3px solid;
+    border-radius: 9px;
+    border-image: linear-gradient(to bottom, #37172a, #fff) 1; 
+    margin:3px 5px ;
+    font-family: var(--font-poppins);
+}
+
+.methods{
+    position: relative;
+    left: 20px;
+}
+
+.Customattributes{
+    position: relative;
+    background: rgba(255, 255, 255, 0.350);
+    /* boxShadow: 0 8px 32px 0 rgba(31, 38, 135, 0.30); */
+    box-shadow: 0px 4px 24px 1px rgba(35, 16, 94, 0.25);
+    backdrop-filter: blur(7.5px);
+    /* Use border-image for gradient border */
+    padding: 7px 40px 7px 40px;
+    /* border: 3px solid #F7B6DD; */
+    border: 3px solid;
+    border-radius: 9px;
+    border-image: linear-gradient(to bottom, #00d4a2, #e62626) 1; 
+    margin:3px 5px ;
+    font-family: var(--font-poppins);
+}
+
+@keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50px); /* Adjust the bounce height as needed */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .bounce-animation {
+    animation: bounce 0.5s infinite; /* Adjust the duration and iteration count as needed */
+}
+
+.sideButtons {
+    /* position: absolute; */
+    opacity: 0;
+        /* position: absolute; */
+        font-size: 24px; 
+       
+         text-align: center; 
+    /* border: 2px solid #e62626;  */
+}
+
+.sideButtons:hover {
+    opacity: 80;
+}
+.sideButtons:active {
+    opacity: 100;
+    color: rgb(93, 177, 246); 
+}
+.addButton{
+    /* border:2px solid black; */
+    padding: 0.5px 4px;
+    background-color: #524c6c;
+    /* font-size: large;
+    margin-bottom: 5px; */
+    color:#dcd6d6;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-left:20px;
+}
+.addButton:hover{
+    background-color: rgb(147, 185, 216) ;
+    color:rgb(51, 51, 51);
+}
+
+.inputStyle {
+    all: unset;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    --background-color: color-mix(in srgb, var(--color-charcoal) 10%, white);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 5px;
+    cursor: text;
+}
+.inputStyleForClass {
+    all: unset;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    --background-color: color-mix(in srgb, var(--color-charcoal) 10%, white);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px 15px 0px 0px;
+    margin-left: 0.5px;
+    width:92%;
+    text-align: center;
+    padding: 5px;
+    cursor: text;
+}
+

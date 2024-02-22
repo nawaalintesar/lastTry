@@ -1,0 +1,98 @@
+.areYouSure {
+  position: absolute;
+  top: 27px;
+  left: 26px;
+  font-weight: 600;
+}
+.yes {
+  position: relative;
+  font-weight: 600;
+}
+.explorebutton,
+.no {
+  font-size: var(--font-size-3xs);
+}
+.explorebutton {
+  position: absolute;
+  top: 92px;
+  left: 82px;
+  border-radius: var(--br-base);
+  background: linear-gradient(177.36deg, #ff9e0d, #d68409, #ff9e0d);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-2xl);
+  cursor: pointer;
+}
+.no {
+  position: relative;
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+}
+.explorebutton1,
+.pagecrossIcon {
+  position: absolute;
+  cursor: pointer;
+}
+.explorebutton1 {
+  border: 0;
+  padding: var(--padding-7xs) var(--padding-2xl);
+  background-color: transparent;
+  top: 92px;
+  left: 229px;
+  border-radius: var(--br-base);
+  background: linear-gradient(177.36deg, #ff9e0d, #d68409, #ff9e0d);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.pagecrossIcon {
+  top: 9px;
+  left: 359px;
+  width: 7.5px;
+  height: 7px;
+}
+.thisActionCannot {
+  position: absolute;
+  top: 49px;
+  left: 82px;
+  font-size: var(--font-size-xs);
+  text-align: left;
+}
+.deleteProject,
+.deleteProjectL {
+  width: 380px;
+  height: 148px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+.deleteProjectL {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background: linear-gradient(
+    180deg,
+    rgba(229, 240, 247, 0.28),
+    rgba(229, 240, 247, 0.11) 81.83%,
+    rgba(229, 240, 247, 0.07)
+  );
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+}
+.deleteProject {
+  position: relative;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

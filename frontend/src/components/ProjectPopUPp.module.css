@@ -1,0 +1,158 @@
+.projectPopUppChild {
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-gray-200);
+  width: 440px;
+  height: 346px;
+  z-index: 0;
+}
+.pagecrossIcon {
+  position: absolute;
+  margin: 0 !important;
+  top: 21px;
+  left: 404px;
+  width: 9px;
+  height: 9px;
+  cursor: pointer;
+  z-index: 1;
+}
+.projectDetails {
+  position: relative;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+.inputError {
+  border: 1px solid red; /* For example, a red border for the input */
+}
+
+.selectError {
+  border: 1px solid red; /* For example, a red border for the select */
+}
+.name {
+  position: relative;
+  font-weight: 500;
+}
+.frameChild {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  border-radius: var(--br-8xs);
+  background: linear-gradient(#4c4863, #4c4863),
+    linear-gradient(#4c4863, #4c4863), linear-gradient(#4c4863, #4c4863),
+    #4c4863;
+  width: 226px;
+  height: 32px;
+}
+.frameChild,
+.javaParent {
+  position: relative;
+}
+.projectDetailsParent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  text-align: left;
+  font-size: var(--font-size-smi);
+}
+.save {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  width: 92px;
+  flex-shrink: 0;
+}
+.button,
+.buttonsave {
+  position: absolute;
+  width: 76px;
+  height: 28px;
+}
+.button {
+  top: 0;
+  left: 0;
+  border-radius: 29.45px;
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 180px #9917ff, 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset,
+    0 2px 1px rgba(255, 255, 255, 0.25) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-31xl);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.button1:active,
+.button:active {
+  background: linear-gradient(
+      rgba(153, 117, 232, 0.91),
+      rgba(153, 117, 232, 0.91)
+    ),
+    radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+}
+.buttonsave {
+  top: 236px;
+  left: calc(50% - 102px);
+  border-radius: var(--br-3xs);
+}
+.button1,
+.buttoncancel {
+  position: absolute;
+  height: 28px;
+  cursor: pointer;
+}
+.button1 {
+  top: 0;
+  left: 4px;
+  border-radius: 29.45px;
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 180px #9917ff, 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset,
+    0 2px 1px rgba(255, 255, 255, 0.25) inset;
+  width: 76px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-31xl);
+  box-sizing: border-box;
+}
+.buttoncancel {
+  top: 236px;
+  left: calc(50% + 28px);
+  border-radius: var(--br-3xs);
+  width: 84px;
+}
+.frameParent {
+  position: absolute;
+  margin: 0 !important;
+  top: 41px;
+  left: 107px;
+  width: 226px;
+  height: 264px;
+  z-index: 2;
+}
+.projectPopUpp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 10px;
+  align-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

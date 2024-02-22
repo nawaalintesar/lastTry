@@ -1,0 +1,107 @@
+.profiledeleteLChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background: linear-gradient(
+    180deg,
+    rgba(229, 240, 247, 0.28),
+    rgba(229, 240, 247, 0.11) 81.83%,
+    rgba(229, 240, 247, 0.07)
+  );
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  width: 380px;
+  height: 202px;
+}
+.areYouSure {
+  margin: 0;
+}
+.areYouSureContainer1 {
+  width: 100%;
+}
+.areYouSureContainer {
+  position: absolute;
+  top: 70px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  width: 331px;
+}
+.deleteAccount {
+  position: absolute;
+  top: 24px;
+  left: 107px;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+.pagecrossIcon {
+  position: absolute;
+  top: 15px;
+  left: 343px;
+  width: 7.5px;
+  height: 7px;
+  cursor: pointer;
+}
+.yes {
+  position: relative;
+  font-size: var(--font-size-3xs);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+}
+.explorebutton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-7xs) var(--padding-2xl);
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-base);
+  background: linear-gradient(177.36deg, #ff9e0d, #d68409, #ff9e0d);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.explorebutton1,
+.explorebuttonWrapper {
+  cursor: pointer;
+  position: absolute;
+  top: 148px;
+}
+.explorebuttonWrapper {
+  left: 84px;
+  width: 60px;
+  height: 27px;
+}
+.explorebutton1 {
+  border: 0;
+  padding: var(--padding-7xs) var(--padding-2xl);
+  background-color: transparent;
+  left: 245px;
+  border-radius: var(--br-base);
+  background: linear-gradient(177.36deg, #ff9e0d, #d68409, #ff9e0d);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.profiledeleteL {
+  position: relative;
+  width: 380px;
+  height: 210px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

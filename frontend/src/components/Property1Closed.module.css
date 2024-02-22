@@ -1,0 +1,124 @@
+.fiBrMenuBurgerIcon {
+  position: fixed;
+  top: 23px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  object-fit: cover;
+  cursor: pointer;
+}
+.hamburgericon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 79px;
+  height: 874px;
+}
+.interfaceEssentialbookIcon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.frameChild,
+.interfaceEssentialbookWrapper {
+  position: absolute;
+  border-radius: var(--br-6xs);
+  cursor: pointer;
+}
+.interfaceEssentialbookWrapper {
+  top: 87px;
+  left: -3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-6xs);
+}
+.dashoboardsm:hover,
+.frameChild:hover,
+.interfaceEssentialbookWrapper:hover,
+.usericon:hover {
+  background-color: var(--color-darkslateblue-100);
+}
+.frameChild {
+  top: 178px;
+  left: -2px;
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+}
+.vectorIcon,
+.vectorIcon1 {
+  position: absolute;
+  top: 6px;
+  left: 7.8px;
+  width: 10.4px;
+  height: 10.4px;
+  object-fit: cover;
+}
+.vectorIcon1 {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.group,
+.usericon {
+  position: absolute;
+  cursor: pointer;
+}
+.group {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 5.8px;
+  left: 7px;
+  width: 26px;
+  height: 26px;
+}
+.usericon {
+  top: 269px;
+  left: 1px;
+  border-radius: var(--br-6xs);
+  width: 40px;
+  height: 38px;
+}
+.layoutgrid4Icon {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+}
+.dashoboardsm {
+  position: absolute;
+  top: calc(50% - 152px);
+  left: calc(50% - 19px);
+  border-radius: var(--br-6xs);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-6xs);
+  cursor: pointer;
+}
+.frameParent {
+  position: fixed;
+  top: 102px;
+  left: 20px;
+  width: 36px;
+  height: 304px;
+}
+.property1closed {
+  background-color: var(--color-gray-300);
+  width: 79px;
+  height: 927px;
+  overflow: hidden;
+  position: absolute;
+}

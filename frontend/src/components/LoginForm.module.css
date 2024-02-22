@@ -1,0 +1,229 @@
+.logIn {
+  position: absolute;
+  height: 68px;
+  top: 0;
+  left: 160px;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  width: 94px;
+  
+}
+.login1 {
+  position: absolute;
+  height: 68px;
+  top: 46px;
+  left: 38px;
+  width: 228px;
+  overflow: hidden;
+  font-size: var(--font-size-11xl);
+}
+
+.joinVoop{
+  position: absolute;
+  font-size: var(--font-size-mini);
+  line-height: 6px;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  top:465px;
+  left:135px;
+}
+.password,
+.username {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 135px;
+  left: 42px;
+  font-family: var(--font-poppins);
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+}
+.password {
+  top: 199px;
+}
+.forgotPassword,
+.rememberMe {
+  position: absolute;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+}
+.forgotPassword {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 0;
+  left: 160.4px;
+  font-size: var(--font-size-sm);
+  text-decoration: underline;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  justify-content: center;
+  width: 259.6px;
+  height: 27.7px;
+}
+.rememberMe {
+  top: 6.2px;
+  left: 30.5px;
+  width: 113.3px;
+  height: 21.8px;
+}
+.materialSymbolsLightsquare {
+  margin: 0;
+  position: absolute;
+  top: 5.9px;
+  left: 0;
+  width: 20px;
+  height: 19.8px;
+  overflow: hidden;
+}
+.frame {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 420px;
+  height: 27.9px;
+}
+.remebermeforgetpass {
+  position: absolute;
+  top: 265px;
+  left: 38px;
+  width: 361px;
+  height: 34px;
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+}
+.wrapperRectangle45Child {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  transform: scale(1.172);
+}
+.logInUsing,
+.wrapperRectangle45 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapperRectangle45 {
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  width: 356.8px;
+  height: 46.5px;
+}
+.logInUsing {
+  top: 17px;
+  left: 70px;
+  line-height: 6px;
+  width: 198px;
+  height: 17px;
+  color: white;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+.logInUsing:hover, .logInUsing:active {
+  color: blue;
+}
+.logInUsing:active {
+  mix-blend-mode: lighten;
+}
+.googleIcon {
+  position: absolute;
+  top: 9px;
+  left: 36px;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.frame1,
+.loginwithgoogle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 356.8px;
+  height: 46.5px;
+  overflow: hidden;
+}
+.loginwithgoogle {
+  text-decoration: none;
+  top: 312px;
+  left: 42px;
+  width: 357px;
+  height: 47px;
+  text-align: center;
+  color: inherit;
+}
+.logInUsing1 {
+  position: absolute;
+  top: 16px;
+  left: 64px;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 228px;
+  height: 16px;
+  color: white;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+.logInUsing1:hover, .logInUsing1:active{
+  color: blue;
+}
+
+.login {
+  position: absolute;
+  top: 138px;
+  left: 900px;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+  border-radius: var(--br-xl);
+  background: linear-gradient(
+    29.46deg,
+    #462084 41.27%,
+    #2b165a 85.58%,
+    #23144e
+  );
+  width: 465px;
+  height: 520px;
+}
+
+.button {
+  position: absolute; /* Make the button absolute */
+  top: 390px; /* Adjust top value to position under the Facebook section */
+  left: 80px; /* Adjust left value if necessary */
+  border-radius: 29.45px;
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 180px #9917ff, 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset,
+    0 2px 1px rgba(255, 255, 255, 0.25) inset;
+  width: 285px;
+   display: flex; 
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-45xl);
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: var(--font-size-lgi);
+  font-weight: 600;
+  color: white;
+  font-family: var(--font-poppins);
+}
+
+.joinNowtosignup{
+  color:#f9ae68 ;
+  cursor:pointer;
+  font-weight: 600;
+}

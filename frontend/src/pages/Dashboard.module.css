@@ -1,0 +1,188 @@
+.dashbaordwelcChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1215px;
+  height: 144px;
+  object-fit: cover;
+}
+.dashbaordwelc,
+.welcomeToYour {
+  position: absolute;
+  top: 47px;
+  left: 51px;
+}
+.dashbaordwelc {
+  top: 0;
+  left: 0;
+  width: 1215px;
+  height: 144px;
+}
+.dashbaordwelcParent {
+  position: absolute;
+  top: 111px;
+  left: 142px;
+  width: 1221px;
+  height: 831px;
+  display: flex;
+  overflow: hidden;
+}
+.dashboard {
+  position: relative;
+  background: linear-gradient(180.46deg, #251849, #251849 0.01%, #18113b);
+  width: 100%;
+  height: 1075px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-righteous);
+}
+.dashboard:hover {
+  filter: drop-shadow(0 4px 4px 5px rgba(104, 63, 234, 0.25));
+}
+
+
+.continueLearning {
+  position: absolute;
+  top: 500px;
+  left: 0px;;
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  
+}
+.recentProjects {
+  position: absolute;
+  top: 4px;
+  left: 1px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 100px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  color: var(--color-thistle-200);
+  font-family: var(--font-poppins);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+}
+.pythonRecentprojectsChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs) var(--br-3xs) 0 0;
+  background: linear-gradient(180deg, #e07410, #dfb48b);
+  width: 300px;
+  height: 233.6px;
+}
+.pythonRecentprojectsItem {
+  position: absolute;
+  top: 148.7px;
+  left: 0;
+  width: 300.2px;
+  height: 85.5px;
+  object-fit: cover;
+}
+.python {
+  position: relative;
+  line-height: 8px;
+}
+.lastUpdated7,
+.pythonWrapper,
+.shapesProj {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.pythonWrapper {
+  top: 30.4px;
+  left: 21px;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  width: 71px;
+  height: 22px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-7xs);
+  box-sizing: border-box;
+  font-family: var(--font-pt-sans);
+}
+.lastUpdated7,
+.shapesProj {
+  left: 22px;
+  line-height: 8px;
+  justify-content: center;
+}
+.shapesProj {
+  top: 74px;
+  font-size: var(--font-size-mini);
+  font-weight: 600;
+  color: var(--color-white);
+  width: 113px;
+  height: 8px;
+}
+.lastUpdated7 {
+  top: 95px;
+  font-size: var(--font-size-3xs);
+  color: var(--color-darkslategray-200);
+  width: 107px;
+  height: 11px;
+}
+
+.icon {
+  position: absolute;
+  top: calc(50% - 44.5px);
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.newProject {
+  position: absolute;
+  top: 81px;
+  left: 0;
+  line-height: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  cursor: pointer;
+}
+.iconParent,
+.newproject {
+  position: absolute;
+  top: 69px;
+  left: 105px;
+  width: 110px;
+  height: 89px;
+  cursor: pointer;
+}
+.newproject {
+  top: 46px;
+  left: 0px;
+  border-radius: var(--br-4xs) var(--br-4xs) 0 0;
+  background-color: var(--color-midnightblue-400);
+  width: 300px;
+  height: 236px;
+  font-size: var(--font-size-mini);
+}
+
+.newproject:hover {
+  background: #5551ff; /* Set the background color on hover to #5551ff */
+  /* Add any other styles you want for the hover effect */
+}
+.recentprojects {
+  position: absolute;
+  top: 192px;
+  left: 0;
+  width: 999px;
+  height: 284px;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

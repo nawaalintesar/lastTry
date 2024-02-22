@@ -1,0 +1,195 @@
+@keyframes shadow-drop-bottom {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+  }
+}
+.classobjectstutcardChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-darkslategray-300);
+  width: 200px;
+  height: 240px;
+}
+.classobjectstutcardItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xl) var(--br-xl) 0 0;
+  background: linear-gradient(96.5deg, #ca6caf 36.98%, #a53c9e);
+  width: 200px;
+  height: 126px;
+}
+.aClassIs {
+  position: absolute;
+  top: 161px;
+  left: 19px;
+  font-size: var(--font-size-2xs);
+  line-height: 100%;
+  font-weight: 500;
+  color: var(--color-darkgray);
+  display: inline-block;
+  width: 152px;
+  height: 59px;
+}
+.classobjectstutcardInner {
+  position: absolute;
+  top: 109px;
+  left: 8px;
+  border-radius: var(--br-21xl);
+  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff), #fff;
+  width: 181.4px;
+  height: 6px;
+}
+.classesAndObjects,
+.div {
+  position: absolute;
+  top: 93px;
+  left: 8px;
+  line-height: 110%;
+  font-weight: 500;
+}
+.classesAndObjects {
+  top: 141px;
+  left: 20px;
+}
+.java,
+.javaWrapper {
+  display: flex;
+  align-items: center;
+}
+.java {
+  position: relative;
+  line-height: 8px;
+  justify-content: center;
+  width: 30px;
+}
+.javaWrapper {
+  position: absolute;
+  top: 26px;
+  left: 16px;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  width: 40px;
+  height: 17px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) var(--padding-7xs) var(--padding-7xs);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-3xs);
+  color: var(--color-midnightblue-300);
+  font-family: var(--font-pt-sans);
+}
+.classobjectstutcard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 240px;
+  cursor: pointer;
+}
+.classobjectstutcard:hover {
+  filter: drop-shadow(0 4px 4px rgba(165, 60, 158, 0.7));
+  animation: 1s ease 0s infinite normal none shadow-drop-bottom;
+  opacity: 1;
+}
+.continuejourneycards {
+  
+  position: relative;
+  /* padding-top: 20px; */
+  top: 80px;
+  /* left: 20px; */
+  /* margin-left: 20px; */
+  
+  height: 310px;
+  display: flex;
+  
+  margin: -10px;
+  justify-self: stretch;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+/* }
+.continuejourneycards:hover {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-content: stretch;
+} */
+.slider {
+  display: flex;
+  width: 700%; /* Adjust this value based on the number of slides */
+  transition: transform 5s ease;  /* Add transition for smooth sliding effect */
+  left: 50px;
+  position: relative;
+}
+
+
+.slider img {
+  width: 55%; /* Adjust this value based on the number of slides */
+  height: auto;
+  object-fit: cover;
+}
+
+ .prev, .next {
+  position: absolute;
+  top: 170px;
+  /* left: 10px; */
+ transform: translateY(-50%); 
+  width: 20px;
+  margin-left: 10px;
+  /* padding: 6px; */
+  background-color: rgba(244, 240, 240, 0.5);
+  border: none;
+  cursor: pointer;
+}
+
+.next {
+  left: 1095px;
+}
+
+/* Add styles for the dots */
+.dotsContainer {
+  /* margin-top: 10px;
+  text-align: center;
+  display: inline-block;
+  gap: 5px;
+  left: 40px;
+  position: absolute;  */
+  margin-top: 10px;
+  text-align: center;
+  display: flex; /* Set to flex container */
+  justify-content: center; /* Center the dots horizontally */
+  gap: 5px;
+  
+  transform: translateX(-50%); /* Center the container */
+  position: absolute; 
+  left: 560px;
+    top: 300px;
+  
+}
+
+/* Adjust the class names to match your JSX */
+.dot{
+  height: 10px;
+  width: 10px;
+ 
+  background-color: #481475;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #11c0e8;
+}

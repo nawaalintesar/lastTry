@@ -1,0 +1,684 @@
+Abstract Classes
+//Tutorial Description
+An instructional guide on creating abstract classes, providing a blueprint for other classes and allowing abstraction of common functionalities. Abstraction is like looking at an object from a distance without worrying about the details. In OOP, abstraction involves simplifying complex systems by modeling classes based on real-world entities while hiding unnecessary details. 
+An abstract class takes this a step further; it's like a partially defined blueprint that provides a structure but leaves some details to be filled in by concrete (specific) classes.
+Classes that cannot be instantiated and may contain abstract methods (methods without implementation) to be defined by subclasses are abstract classes.
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Shape.java
+abstract class Shape {
+    abstract void draw();
+}
+
+// Example usage
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Square extends Shape {
+    void draw() {
+        System.out.println("Drawing a square");
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Creating instances and invoking the draw method
+        Circle circle = new Circle();
+        Square square = new Square();
+
+        circle.draw();
+        square.draw();
+    }
+}
+
+
+//Steps
+Step 1: We create an abstract class called Shape.An Abstract class is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+Step 2: Within the abstract class shape ,we declare an abstract method named draw(). This method has no implementation in the Shape class; it's meant to be overridden (implemented) by subclasses.
+Step 3: Both class circle and shape are extending(inheriting) from shape , which allows them to access the draw method.Both class circle and square have an implementation of this method allowing them to add print statements within the method.
+Step 4: So when we create a circle object of class circle and call the draw method it will print drawing a circle because the circle class overrode the draw method in shape class. 
+------------------------------
+
+//Level 2- Java
+//Code
+***
+Drawable.java
+interface Drawable {
+    void draw();
+}
+
+***
+Circle.java
+class Circle implements Drawable {
+    String color;
+    double radius;
+
+    Circle(String color, double radius) {
+        this.color = color;
+        this.radius = radius;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Circle with color: " + color);
+        // Additional code for drawing a circle...
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle("Red", 5.0);
+
+        // Draw the circle
+        circle.draw();
+    }
+}
+
+
+
+//Steps
+Step 1: Initially we create an interface called drawable containing a single method called draw(). Interfaces in Java declare a contract that classes can implement, ensuring they provide certain functionalities without specifying the implementation details.
+Step 2:Then we create a class called Circle implementing(Implementing is  Used in class definition to declare the Interfaces that are to be implemented by the class.). Abstract classes in Java provide a blueprint for other classes and can contain both implemented and abstract methods.
+Step 3: Then for the class circle we create 2 attributes(color and radius). Then a constructor is created for shape class Circle. This constructor helps in initializing the circle attribute with the provided value. 
+Step 4: Class circle then overrides the draw method in drawable class. So when we run the draw method on an object of circle we see the statement from the draw method in the circle class.
+------------------------------
+
+
+//Level 3- Java
+//Code
+***
+RowMapper.java
+interface RowMapper<T> {
+    T mapRow(String[] data);
+    String mapToString(T entity);
+}
+***
+User.java
+class User {
+    private long id;
+    private String username;
+
+    // Constructors, getters, setters, etc.
+    public User(){
+        id=1234;
+        username="default";
+    }
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                '}';
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+      public long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return  username;
+    }
+}
+***
+UserRowMapper.java
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+class UserRowMapper implements RowMapper<User> {
+    @Override
+    public User mapRow(String[] data) {
+        User user = new User();
+        user.setId(Long.parseLong(data[0]));
+        user.setUsername(data[1]);
+        return user;
+    }
+
+    @Override
+    public String mapToString(User entity) {
+        return entity.getId() + "," + entity.getUsername();
+        // Convert other fields to CSV format
+    }
+
+    public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mapRow'");
+    }
+
+
+}
+***
+UserDao.java
+import java.io.IOException;
+import java.util.List;
+
+public class UserDao extends AbstractDao<User> {
+    public UserDao(String filePath) {
+        super(filePath);
+    }
+
+    public List<User> findAllUsers() throws IOException {
+        createFileIfNotExists();
+        return findAll(new UserRowMapper());
+    }
+
+    public void saveAllUsers(List<User> users) throws IOException {
+        createFileIfNotExists();
+        saveAll(users, new UserRowMapper());
+    }
+
+    // Additional methods specific to User entity
+}
+***
+AbstractDao.java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class AbstractDao<T> {
+    private File dataFile;
+
+    public AbstractDao(String filePath) {
+        this.dataFile = new File(filePath);
+    }
+
+    protected void createFileIfNotExists() throws IOException {
+        if (!dataFile.exists()) {
+            dataFile.createNewFile();
+        }
+    }
+
+    protected List<T> findAll(RowMapper<T> rowMapper) throws IOException {
+        List<T> resultList = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(dataFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                T entity = rowMapper.mapRow(line.split(","));
+                resultList.add(entity);
+            }
+        }
+        return resultList;
+    }
+
+    protected void saveAll(List<T> entities, RowMapper<T> rowMapper) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(dataFile))) {
+            for (T entity : entities) {
+                String line = rowMapper.mapToString(entity);
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+    }
+
+    // Other common file operations can be abstracted here
+}
+***
+Main.java
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        UserDao userDao = new UserDao("users.txt");
+
+        // Create sample users
+        List<User> users = new ArrayList<>();
+        User user1 = new User();
+        user1.setId(1);
+        user1.setUsername("John");
+
+        User user2 = new User();
+        user2.setId(2);
+        user2.setUsername("Jane");
+
+        users.add(user1);
+        users.add(user2);
+
+        // Save users to file
+        userDao.saveAllUsers(users);
+
+        // Retrieve and display users from file
+        List<User> retrievedUsers = userDao.findAllUsers();
+        for (User retrievedUser : retrievedUsers) {
+            System.out.println(retrievedUser);
+        }
+    }
+}
+
+//Steps
+------------------------------
+//Level 1- Python
+//Code
+***
+main.py
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+
+# Example usage
+class Circle(Shape):
+    def draw(self):
+        print("Drawing a circle")
+
+class Square(Shape):
+    def draw(self):
+        print("Drawing a square")
+
+# Creating instances and invoking the draw method
+circle = Circle()
+square = Square()
+
+circle.draw()
+square.draw()
+
+
+
+//Steps
+Step 1: We create an abstract class called Shape. It inherits from the ABC class imported from the abc module in Python.
+Step 2: The @abstractmethod is a decorator in Python used to declare an abstract method. def draw(self) helps in declaring an abstract method named draw.The pass keyword indicates that this abstract method doesn't have an implementation in the Shape class; it's meant to be overridden (implemented) by subclasses.
+Step 3: Both class square and circle are inheriting from class shape , both of these classes will have to provide their own implementation of the draw method in the shape class as it is an abstract method.
+Step 4: So when we create an object of type circle and we call the draw method we will see output of the draw method within the circle class which is drawing a circle
+
+//Level 2- Python
+//Code
+***
+main.py
+from abc import ABC, abstractmethod
+
+class Drawable(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+
+class Circle(Drawable):
+    def __init__(self, color, radius):
+        self.color = color
+        self.radius = radius
+
+    def draw(self):
+        print(f'Drawing Circle with color: {self.color}')
+        # Additional code for drawing a circle...
+
+if __name__ == "__main__":
+    circle = Circle("Red", 5.0)
+
+    # Draw the circle
+    circle.draw()
+
+
+
+//Steps
+Step 1: Initially we define an abstract based class(ABC) called drawable. Which inherits from the abc module in Python, indicating it's an abstract class.
+Step 2: @abstractmethod is used to declare an abstract method.
+Then we declare an abstract method named draw within the Drawable class.
+The pass keyword in the method body signifies that the method doesn’t have an implementation in the Drawable class. So anyclass inheriting from the drawable class would have to provide an implementation for this method.
+Step 3: Then we define a class named Circle that inherits from Drawable. This means Circle is a subclass of Drawable. Class circle has its own constructor with variables colour and radius. Then the class circle provides an implementation of the draw method.
+Step 4: Within the main when we create an object of the circle class and call the method draw , we the output is the same as the print statement within the draw method in classs circle.
+------------------------------
+
+
+//Level 3- Python
+//Code
+***
+main.py
+import os
+
+
+class RowMapper:
+    def map_row(self, data):
+        pass
+
+
+    def map_to_string(self, entity):
+        pass
+
+
+class User:
+    def __init__(self):
+        self.id = 1234
+        self.username = "default"
+
+
+    def __str__(self):
+        return f"User{{id={self.id}, username='{self.username}'}}"
+
+
+    def set_id(self, id):
+        self.id = id
+
+
+    def set_username(self, username):
+        self.username = username
+
+
+    def get_id(self):
+        return self.id
+
+
+    def get_username(self):
+        return self.username
+
+
+class UserRowMapper(RowMapper):
+    def map_row(self, data):
+        user = User()
+        user.set_id(int(data[0]))
+        user.set_username(data[1])
+        return user
+
+
+    def map_to_string(self, entity):
+        return f"{entity.get_id()},{entity.get_username()}"
+
+
+class UserDao:
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+
+    def find_all_users(self):
+        self.create_file_if_not_exists()
+        return self.find_all(UserRowMapper())
+
+
+    def save_all_users(self, users):
+        self.create_file_if_not_exists()
+        self.save_all(users, UserRowMapper())
+
+
+    def create_file_if_not_exists(self):
+        if not os.path.exists(self.file_path):
+            with open(self.file_path, 'w+'):
+                pass
+
+
+    def find_all(self, row_mapper):
+        result_list = []
+        with open(self.file_path, 'r') as file:
+            for line in file:
+                entity = row_mapper.map_row(line.strip().split(','))
+                result_list.append(entity)
+        return result_list
+
+
+    def save_all(self, entities, row_mapper):
+        with open(self.file_path, 'w') as file:
+            for entity in entities:
+                line = row_mapper.map_to_string(entity)
+                file.write(line + '\n')
+
+
+# Main program
+if __name__ == "__main__":
+    user_dao = UserDao("users.txt")
+
+
+    # Create sample users
+    users = [
+        User(),
+        User(),
+    ]
+    users[0].set_id(1)
+    users[0].set_username("John")
+    users[1].set_id(2)
+    users[1].set_username("Jane")
+
+
+    # Save users to file
+    user_dao.save_all_users(users)
+
+
+    # Retrieve and display users from file
+    retrieved_users = user_dao.find_all_users()
+    for retrieved_user in retrieved_users:
+        print(retrieved_user)
+
+
+
+
+//Steps
+------------------------------
+
+
+//Level 1- C++
+//Code
+***
+main.cpp
+#include <iostream>
+
+class Shape {
+public:
+    virtual void draw() = 0;  // Pure virtual function makes the class abstract
+};
+
+// Example usage
+class Circle : public Shape {
+public:
+    void draw() override {
+        std::cout << "Drawing a circle" << std::endl;
+    }
+};
+
+class Square : public Shape {
+public:
+    void draw() override {
+        std::cout << "Drawing a square" << std::endl;
+    }
+};
+
+int main() {
+    // Creating instances and invoking the draw method
+    Circle circle;
+    Square square;
+
+    circle.draw();
+    square.draw();
+
+    return 0;
+}
+
+
+
+//Steps
+Step 1: We create an abstract class called Shape. 
+Step 2: virtual void draw() = 0; helps in declaring a pure virtual function named draw. A pure virtual function in C++ is a function declared in a base class that has no implementation and must be overridden in derived classes.
+Step 3: The draw function acts as a placeholder method; it must be implemented by any derived class before objects of those classes can be instantiated. Subclasses of Shape need to override the draw function to provide specific drawing behavior for each shape type.
+Step 4: Both class circle and square inherit from class shape. Both these classes implement their own version of the draw method. So when we create an object of the class circle and we call the draw method, we will get the output of drawing by circle.
+------------------------------
+
+//Level 2- C++
+//Code
+***
+main.cpp
+#include <iostream>
+
+class Drawable {
+public:
+    virtual void draw() = 0;
+};
+
+class Circle : public Drawable {
+private:
+    std::string color;
+    double radius;
+
+public:
+    Circle(std::string color, double radius) : color(color), radius(radius) {}
+
+    void draw() override {
+        std::cout << "Drawing Circle with color: " << color << std::endl;
+        // Additional code for drawing a circle...
+    }
+};
+
+int main() {
+    Circle circle("Red", 5.0);
+
+    // Draw the circle
+    circle.draw();
+
+    return 0;
+}
+
+
+
+//Steps
+Step 1: Initially we define a base class called drawable with a pure virtual function draw. This pure virtual function specifies that any derived class must implement its own draw method. 
+Step 2: Then we define a class named Circle that inherits from Drawable.This means that class circle will have to provide their own implementation of the draw method in drawable class. Class circle has its own constructor with variable color and radius. It also has an override to the draw method.
+Step 3: Within the main we create an object of the circle class and call the draw method , we see that the draw method’s output is the print statement within the circle class.
+------------------------------
+//Level 3- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <sstream>
+
+class RowMapper {
+public:
+    virtual ~RowMapper() = default;
+
+    virtual void mapRow(std::vector<std::string>& data) = 0;
+    virtual std::string mapToString() = 0;
+};
+
+class User {
+private:
+    long id;
+    std::string username;
+
+public:
+    User() : id(1234), username("default") {}
+
+    void setId(long newId) {
+        id = newId;
+    }
+
+    void setUsername(const std::string& newUsername) {
+        username = newUsername;
+    }
+
+    long getId() const {
+        return id;
+    }
+
+    const std::string& getUsername() const {
+        return username;
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const User& user) {
+        os << "User{id=" << user.id << ", username='" << user.username << "'}";
+        return os;
+    }
+};
+
+class UserRowMapper : public RowMapper {
+public:
+    User user;
+
+    void mapRow(std::vector<std::string>& data) override {
+        user.setId(std::stol(data[0]));
+        user.setUsername(data[1]);
+    }
+
+    std::string mapToString() override {
+        return std::to_string(user.getId()) + "," + user.getUsername();
+    }
+};
+
+class UserDao {
+private:
+    std::string filePath;
+
+public:
+    UserDao(const std::string& path) : filePath(path) {}
+
+    void findAllUsers() {
+        create
+
+        createFileIfNotExists();
+        findAll(new UserRowMapper());
+    }
+
+    void saveAllUsers(const std::vector<User>& users) {
+        createFileIfNotExists();
+        saveAll(users, UserRowMapper());
+    }
+
+    void createFileIfNotExists() {
+        std::ofstream file(filePath, std::ios::app);
+        file.close();
+    }
+
+    void findAll(UserRowMapper& rowMapper) {
+        std::ifstream file(filePath);
+        std::string line;
+        while (std::getline(file, line)) {
+            std::stringstream ss(line);
+            std::vector<std::string> data;
+            std::string token;
+            while (std::getline(ss, token, ',')) {
+                data.push_back(token);
+            }
+            rowMapper.mapRow(data);
+            std::cout << rowMapper.user << std::endl;
+        }
+    }
+
+    void saveAll(const std::vector<User>& users, UserRowMapper& rowMapper) {
+        std::ofstream file(filePath);
+        for (const auto& user : users) {
+            rowMapper.user = user;
+            file << rowMapper.mapToString() << std::endl;
+        }
+    }
+};
+
+int main() {
+    UserDao userDao("users.txt");
+
+    // Create sample users
+    std::vector<User> users = {
+        {1, "John"},
+        {2, "Jane"}
+    };
+
+    // Save users to file
+    userDao.saveAllUsers(users);
+
+    // Retrieve and display users from file
+    userDao.findAllUsers();
+
+    return 0;
+}
+
+
+
+//Steps
+------------------------------
+
+

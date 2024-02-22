@@ -1,0 +1,312 @@
+Interfaces
+//Tutorial Description
+A guide on interfaces, serving as contracts that classes may implement to help ensure a consistent structure across diverse objects. Interfaces are like contracts that define a set of promises a class must fulfill. In OOP, an interface declares a list of methods without providing their implementation. It's like saying, "If you want to be part of this group, you must have these abilities." Classes that implement an interface must provide concrete implementations for all declared methods. 
+If you’re wondering how this is different from an abstract class that's a great question. The first major difference is that a class can inherit from only one other class directly. That is, a class can only inherit from 1 parent. However, they can implement as many interfaces are required. The second difference is better explained with an example. A car and a bus are types of vehicles. So they can inherit from the parent “Vehicle” class. A car and a potato don’t share much in common, but they both need to be washed on occasion. It would not make sense to give them a common parent, but they can implement a common interface called “isWashable” for example that contains a function wash that both must implement as a rule.
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Polygon.java
+interface Polygon {
+  void getArea();
+
+  // default method 
+  default void getSides() {
+    System.out.println("I can get sides of a polygon.");
+  }
+}
+***
+Rectangle.java
+// implements the interface
+class Rectangle implements Polygon {
+  public void getArea() {
+    int length = 6;
+    int breadth = 5;
+    int area = length * breadth;
+    System.out.println("The area of the rectangle is " + area);
+  }
+
+  // overrides the getSides()
+  public void getSides() {
+    System.out.println("I have 4 sides.");
+  }
+}
+***
+Square.java
+// implements the interface
+class Square implements Polygon {
+  public void getArea() {
+    int length = 5;
+    int area = length * length;
+    System.out.println("The area of the square is " + area);
+  }
+}
+***
+Main.java
+class Main {
+  public static void main(String[] args) {
+
+    // create an object of Rectangle
+    Rectangle r1 = new Rectangle();
+    r1.getArea();
+    r1.getSides();
+
+    // create an object of Square
+    Square s1 = new Square();
+    s1.getArea();
+    s1.getSides();
+  }
+}
+//Steps
+------------------------------
+//Level 2- Java
+//Code 
+***
+MyFunction.java
+@FunctionalInterface
+interface MyFunction {
+    void performAction(String message);
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Using a lambda expression to implement the functional interface
+        MyFunction myFunction = message -> System.out.println("Performing action: " + message);
+
+        // Calling the abstract method of the functional interface
+        myFunction.performAction("Hello, Functional Interface!");
+    }
+}
+
+//Steps
+------------------------------
+
+//Level 3- Java 
+//Code
+***
+Plugin.java
+public interface Plugin {
+    // Abstract method for executing the plugin
+    void execute();
+
+    // Abstract method for configuring the plugin
+    void configure(String config);
+
+    // Static method to get the plugin version
+    static String getVersion() {
+        return "1.0";
+    }
+
+    // Default method for logging
+    default void log(String message) {
+        System.out.println("Plugin Log: " + message);
+    }
+}
+***
+SamplePlugin.java
+// Concrete implementation of the Plugin interface
+public class SamplePlugin implements Plugin {
+    @Override
+    public void execute() {
+        System.out.println("Executing SamplePlugin");
+    }
+
+    @Override
+    public void configure(String config) {
+        System.out.println("Configuring SamplePlugin with: " + config);
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of SamplePlugin
+        SamplePlugin samplePlugin = new SamplePlugin();
+
+        // Execute and configure the plugin
+        samplePlugin.execute();
+        samplePlugin.configure("Sample Configuration");
+
+        // Log using the default method
+        samplePlugin.log("Some log message");
+
+        // Access the static method
+        System.out.println("Plugin Version: " + Plugin.getVersion());
+    }
+}
+
+//Steps
+------------------------------
+
+//Level 1- C++
+//Code
+***
+main.cpp
+#include <iostream>
+using namespace std;
+
+class Polygon {
+public:
+    virtual void get_area() = 0;
+    virtual void get_sides() {
+        cout << "I can get sides of a polygon." << endl;
+    }
+};
+
+class Rectangle : public Polygon {
+public:
+    void get_area() override {
+        int length = 6;
+        int breadth = 5;
+        int area = length * breadth;
+        cout << "The area of the rectangle is " << area << endl;
+    }
+
+    void get_sides() override {
+        cout << "I have 4 sides." << endl;
+    }
+};
+
+class Square : public Polygon {
+public:
+    void get_area() override {
+        int length = 5;
+        int area = length * length;
+        cout << "The area of the square is " << area << endl;
+    }
+};
+
+int main() {
+    Rectangle r1;
+    r1.get_area();
+    r1.get_sides();
+
+    Square s1;
+    s1.get_area();
+    s1.get_sides();
+
+    return 0;
+}
+//Steps
+	Level 2 functional interface
+------------------------------
+
+//Level 2- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <functional>
+
+// Functional interface in C++ using std::function
+class MyFunction {
+public:
+    virtual void performAction(const std::string& message) = 0;
+};
+
+class MyFunctionImplementation : public MyFunction {
+public:
+    // Implementing the abstract method of the functional interface
+    void performAction(const std::string& message) override {
+        std::cout << "Performing action: " << message << std::endl;
+    }
+};
+
+int main() {
+    // Create an instance of the implementation class
+    MyFunctionImplementation myFunctionImplementation;
+
+    // Using std::function to bind the implementation to the functional interface
+    std::function<void(const std::string&)> myFunction = std::bind(&MyFunctionImplementation::performAction, &myFunctionImplementation, std::placeholders::_1);
+
+    // Calling the abstract method of the functional interface
+    myFunction("Hello, Functional Interface!");
+
+    return 0;
+}
+
+//Steps
+
+------------------------------
+
+
+//Level 3- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <string>
+
+class Plugin {
+public:
+    // Pure virtual function for executing the plugin
+    virtual void execute() = 0;
+
+    // Pure virtual function for configuring the plugin
+    virtual void configure(const std::string& config) = 0;
+
+    // Static method to get the plugin version
+    static std::string getVersion() {
+        return "1.0";
+    }
+
+    // Default method for logging
+    virtual void log(const std::string& message) {
+        std::cout << "Plugin Log: " << message << std::endl;
+    }
+
+    // Virtual destructor for proper cleanup
+    virtual ~Plugin() {}
+};
+
+// Concrete implementation of the Plugin interface
+class SamplePlugin : public Plugin {
+public:
+    void execute() override {
+        std::cout << "Executing SamplePlugin" << std::endl;
+    }
+
+    void configure(const std::string& config) override {
+        std::cout << "Configuring SamplePlugin with: " << config << std::endl;
+    }
+};
+
+int main() {
+    // Create an instance of SamplePlugin
+    SamplePlugin samplePlugin;
+
+    // Execute and configure the plugin
+    samplePlugin.execute();
+    samplePlugin.configure("Sample Configuration");
+
+    // Log using the default method
+    samplePlugin.log("Some log message");
+
+    // Access the static method
+    std::cout << "Plugin Version: " << Plugin::getVersion() << std::endl;
+
+    return 0;
+}
+
+int main() {
+    // Create an instance of SamplePlugin
+    SamplePlugin samplePlugin;
+
+    // Execute and configure the plugin
+    samplePlugin.execute();
+    samplePlugin.configure("Sample Configuration");
+
+    // Log using the default method
+    samplePlugin.log("Some log message");
+
+    // Access the static method
+    std::cout << "Plugin Version: " << Plugin::getVersion() << std::endl;
+
+    return 0;
+}
+
+//Steps
+------------------------------
+
+

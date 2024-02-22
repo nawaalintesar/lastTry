@@ -1,0 +1,539 @@
+Classes and Objects
+//Tutorial Description
+A tutorial explaining how to define and use classes to create objects. In the world of Object-Oriented Programming-OOP, think of objects as a blueprint or a template that defines the characteristics and behaviors of these objects. 
+This template is called a class. A class usually has a name, attributes- which are the characteristics common to any member of the class, and functions- which all members of the class can do or have.
+An instance is like a specific realization of that blueprint - an actual object created based on the class. This instance is created with the help of a “constructor”. 
+For example, you can have a class called "Car" that defines what a car is (its properties like color and speed, and behaviors like honking). An instance of this class would be an actual car that has specific attributes and functions unique to it.
+
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Class.java
+class Circle {
+    double radius;
+    String color;  // New attribute
+
+    Circle(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
+    }
+
+    double calculateArea() {  // New function
+        return Math.PI * radius * radius;
+    }
+
+    public static void main(String args[]) {
+        // Creating an instance of a Circle
+        Circle c1 = new Circle(10.2, "Red");
+
+        // Accessing attributes and invoking the new function
+        System.out.println("Radius: " + c1.radius);
+        System.out.println("Color: " + c1.color);
+        System.out.println("Area: " + c1.calculateArea());
+    }
+}
+
+
+//Steps
+Step 1: Create a class blueprint called circle to create multiple circles.
+Step 2: Add attributes that define the circle- radius and color for example, and determine their data types. 
+Step 3: The constructor Circle(double radius, String color), is a function that every class needs to create an instance of a circle.  In this example, it takes parameters radius and color to be set as per the value provided. 
+Step 4: The constructor initializes the radius attribute with the value passed as an parameter to the constructor (this.radius = radius;). Whatever radius a user provides will be initialized for the instance they created with the help of the “this” keyword. “This” also helps to differentiate between the parameter radius and the attribute of the class which is also called radius. 
+Step 5: A function calculateArea to return the area of the circle. It does not need parameters since the radius of the circle is stored in any instance of the circle that is created. 
+Step 6: Create an instance of the circle and provide a radius and color as an argument and printing out the circle’s information.
+------------------------------
+
+
+//Level 2- Java
+//Code
+***
+Animal.java
+public class Animal {
+    private String name;
+    private int age;  // New attribute
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Default constructor
+    public Animal() {
+        this.name = "Unknown";
+        this.age = 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void makeSound() {
+        System.out.println("Some generic sound");
+    }
+
+    public void sleep() {
+        System.out.println(name + " is sleeping");
+    }
+
+    @Override
+    public String toString() {
+        return "Animal [name=" + name + ", age=" + age + "]";
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Creating instances of the Animal class using different constructors
+        Animal animal1 = new Animal("Lion", 5);
+        Animal animal2 = new Animal();
+
+        // Accessing attributes and invoking functions
+        System.out.println(animal1);
+        System.out.println(animal2);
+
+        animal1.makeSound();
+        animal2.sleep();
+	  animal1.getAge();
+    }
+}
+//Steps
+Step 1: Create a class called Animal, using the class keyword. 
+Step 2: The attributes "name" and “age” is marked as private, meaning it's only accessible within the Animal class itself. This is done for security reasons and it is standard practice to make all attributes private.
+Step 3: Note that there are 2 constructors. The first one is the default constructor for when the user does not provide the attributes during declaration. The second is the overloaded constructor that takes the name and age of the animal when the instance of the animal is created,
+Step 4: The next step  is to create setters and getters. Since the attributes name and age are private, they are not accessible to other classes in the project. A setter sets the values passed as arguments to the function as attributes of the instance created. A getter simply retrieves the values already set in the instance of a class and therefore does not require any parameters. Note that there is one setter and one getter for each private attribute. 
+Step 5: Next we create methods called makeSound() and sleep() since these are functions of every animal. This Is marked as public, meaning it can be accessed from outside the class. 
+Step 6: toString() is an inbuilt java function that allows us to determine how the Animal class should be printed as a string when called with System.out.println(). It simply returns a string as per the user’s requirements.
+Step 7: We can now create instances of this animal class in main. Note that animal1 uses the overloaded constructor and animal2 uses the default constructor. 
+Step 8: The toString function allows us to print an animal similar to how you can print strings or numbers without a separate print() function. 
+Step 9: All the setters, getters, and other functions of the class are called by <instance>.<functionName()>
+------------------------------
+//Level 3- Java
+//Code
+***
+Employee.java
+import java.util.*;
+
+class Employee {
+    private static int employeeCount = 0;
+    private int employeeId;
+    private String name;
+    private String department;
+    private double salary;
+
+    public Employee(String name, String department, double salary) {
+    this.employeeId = ++employeeCount;
+    this.name = (name != null) ? name : "DefaultName";
+    this.department = (department != null) ? department : "DefaultDepartment";
+    this.salary = (salary >= 0) ? salary : 0.0;  
+}
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+}
+***
+EmployeeManagementSystem.java
+class EmployeeManagementSystem {
+    private List<Employee> employees;
+
+    public EmployeeManagementSystem() {
+        this.employees = new ArrayList<>();
+    }
+
+    public void hireEmployee(String name, String department, double salary) {
+        Employee newEmployee = new Employee(name, department, salary);
+        employees.add(newEmployee);
+        System.out.println(name + " hired successfully!");
+    }
+
+    public void displayEmployeeDetails() {
+        System.out.println("Employee Details:");
+        for (Employee employee : employees) {
+            System.out.println("Name: " + employee.getName() +
+                    ", Department: " + employee.getDepartment() +
+                    ", Salary: " + employee.getSalary());
+        }
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        EmployeeManagementSystem ems = new EmployeeManagementSystem();
+
+        ems.hireEmployee("John Doe", "Engineering", 80000);
+        ems.hireEmployee("Jane Smith", "Marketing", 75000);
+
+        ems.displayEmployeeDetails();
+    }
+}
+//Steps
+Step 1: The Employee class represents employees containing private attributes like employeeId, name, department, and salary. 
+Step 2: The constructor initializes an employee with a unique ID, provided name, department, and salary. ote that the constructor sets a value by default if the data is not provided by the user without the need for a second constructor. The getter methods (getName, getDepartment, getSalary) retrieves the name, department, and salary of an employee.
+Step 3: We create a class called EmployeeManagementSystem Class. This class manages employees. It contains a private List of Employee objects.
+Step 4: The constructor Initializes the employees list as an empty ArrayList when an EmployeeManagementSystem object is created.
+Step 5: The hireEmployee Method creates a new Employee object given the employees details provided as parameters to the function, adds it to the employees list, and prints a success message. 
+Step 6: The displayEmployeeDetails method iterates through the entire arraylist of employees and displays details (name, department, salary) of each employee in the employees list.
+Step 7: Within the main class we create an instance of this EmployeeManagementSystem for a company. We use the hireEmployee method to add 2 employees and we display the details of the employees using the displayEmployeeDetails method. Rather than creating an array list of employees in main, the employee management system handles all the functions regarding management of employees which increases abstraction, encapsulation, data hiding and promotes security and efficiency.
+------------------------------
+
+//Level 1- Python
+//Code
+***
+main.py
+import math
+
+class Circle:
+    def __init__(self, radius, color):
+        self.radius = radius
+        self.color = color
+
+    def calculate_area(self):
+        return math.pi * self.radius**2
+
+# Creating an instance of a Circle
+c1 = Circle(10.2, "Red")
+
+# Accessing attributes and invoking the new function
+print("Radius:", c1.radius)
+print("Color:", c1.color)
+print("Area:", c1.calculate_area())
+
+//Steps
+Step 1: Create a class blueprint called circle to create multiple circles.
+Step 2: Add attributes that define the circle- radius and color for example, and determine their data types. 
+Step 3: The constructor Circle(double radius, String color), is a function that every class needs to create an instance of a circle.  In this example, it takes parameters radius and color to be set as per the value provided. 
+Step 4: The __init__ method is a method used for initializing objects in Python. The constructor def __init__(self, radius), initializes the radius attribute with the value passed as an parameter to the constructor (self.radius = radius). Whatever radius a user provides will be initialized for the instance they created with the help of the “self” keyword.
+Step 5: A function calculateArea to return the area of the circle. It does not need parameters since he radius of the circle is stored in any instance of circle that is created. 
+Step 6: Create an instance of the circle and providing a radius and color as an arguement and printing out the circle’s informaiton.
+------------------------------
+
+
+//Level 2- Python
+//Code
+***
+main.py
+class Animal:
+    def __init__(self, name="Unknown", age=0):
+        self.name = name
+        self.age = age
+
+    def make_sound(self):
+        print("Some generic sound")
+
+    def sleep(self):
+        print(f"{self.name} is sleeping")
+
+    def __str__(self):
+        return f"Animal [name={self.name}, age={self.age}]"
+
+# Main class
+class Main:
+    @staticmethod
+    def main():
+        # Creating instances of the Animal class using different constructors
+        animal1 = Animal("Lion", 5)
+        animal2 = Animal()
+
+        # Accessing attributes and invoking functions
+        print(animal1)
+        print(animal2)
+
+        animal1.make_sound()
+        animal2.sleep()
+
+
+# Invoke the main method
+if __name__ == "__main__":
+    Main.main()
+//Steps
+Step 1: Create a class called Animal, using the class keyword. 
+Step 2: The attributes "name" and “age” is marked as private, meaning it's only accessible within the Animal class itself. This is done for security reasons and it is standard practice to make all attributes private.
+Step 3: The __init__ method is a method used for initializing objects. It takes two parameters: self (which refers to the instance of the class) and the other parameters. It sets the instance variable name to the provided name parameter value. Note that the default values if the user does not provide arguments can be set in the parentheses of the constructor.
+Step 4: Next we create methods called makeSound() and sleep() since these are functions of every animal. 
+Step 5: __str__() is an inbuilt java function that allows us to determine how the Animal class should be printed as a string when called with System.out.println(). It simply returns a string as per the user’s requirements.
+Step 6: We can now create instances of this animal class in main. Note that animal1 uses the overloaded constructor and animal2 uses the default constructor. 
+Step 7: The __str__()function allows us to print an animal similar to how you can print strings or numbers without a separate print() function. 
+Step 8: All the other functions of the class are called by <instance>.<functionName()>
+Step 9: Finally main is invoked. It's a best practice to encapsulate the main execution logic of your script within the if __name__ == "__main__": block to provide better control and flexibility when the script is used as both a standalone program and as a module in other scripts.
+------------------------------
+//Level 3- Python
+//Code
+main.py
+class Employee:
+    employeeCount = 0
+
+    def __init__(self, name, department, salary):
+        Employee.employeeCount += 1
+        self.employeeId = Employee.employeeCount
+        self.name = name
+        self.department = department
+        self.salary = salary
+
+    def get_name(self):
+        return self.name
+
+    def get_department(self):
+        return self.department
+
+    def get_salary(self):
+        return self.salary
+
+class EmployeeManagementSystem:
+    def __init__(self):
+        self.__employees = []
+
+    def hire_employee(self, name, department, salary):
+        new_employee = Employee(name, department, salary)
+        self.__employees.append(new_employee)
+        print(name + " hired successfully!")
+
+    def display_employee_details(self):
+        print("Employee Details:")
+        for employee in self.__employees:
+            print("Name:", employee.get_name(),
+                  ", Department:", employee.get_department(),
+                  ", Salary:", employee.get_salary())
+
+
+# Test in Python
+ems = EmployeeManagementSystem()
+
+ems.hire_employee("John Doe", "Engineering", 80000)
+ems.hire_employee("Jane Smith", "Marketing", 75000)
+
+ems.display_employee_details()
+//Steps
+Step 1: The Employee class represents employees containing private attributes like employeeId, name, department, and salary. 
+Step 2: The constructor initializes an employee with a unique ID, provided name, department, and salary. ote that the constructor sets a value by default if the data is not provided by the user without the need for a second constructor. The getter methods (getName, getDepartment, getSalary) retrieves the name, department, and salary of an employee.
+Step 3: We create a class called EmployeeManagementSystem Class. This class manages employees. It contains a private List of Employee objects.
+Step 4: The constructor Initializes the employees list as an empty ArrayList when an EmployeeManagementSystem object is created. The double underscore __ before employees makes it a private attribute, accessible only within the class.
+Step 5: The hireEmployee Method creates a new Employee object given the employees details provided as parameters to the function, adds it to the employees list, and prints a success message. 
+Step 6: The displayEmployeeDetails method iterates through the entire arraylist of employees and displays details (name, department, salary) of each employee in the employees list.
+Step 7: Within the main class we create an instance of this EmployeeManagementSystem for a company. We use the hireEmployee method to add 2 employees and we display the details of the employees using the displayEmployeeDetails method. Rather than creating an array list of employees in main, the employee management system handles all the functions regarding management of employees which increases abstraction, encapsulation, data hiding and promotes security and efficiency.
+------------------------------
+//Level 1- C++
+//Code
+main.cpp
+#include <iostream>
+#include <cmath>
+
+class Circle {
+public:
+    double radius;
+    std::string color;  // New attribute
+
+    Circle(double radius, std::string color) {
+        this->radius = radius;
+        this->color = color;
+    }
+
+    double calculateArea() {  // New function
+        return M_PI * pow(radius, 2);
+    }
+};
+
+int main() {
+    // Creating an instance of a Circle
+    Circle c1(10.2, "Red");
+
+    // Accessing attributes and invoking the new function
+    std::cout << "Radius: " << c1.radius << std::endl;
+    std::cout << "Color: " << c1.color << std::endl;
+    std::cout << "Area: " << c1.calculateArea() << std::endl;
+
+    return 0;
+}
+//Steps
+Step 1: Create a class blueprint called circle to create multiple circles.
+Step 2: Add attributes that define the circle- radius and color for example, and determine their data types. 
+Step 3: The constructor Circle(double radius, String color), is a function that every class needs to create an instance of a circle. It may or may not take parameters. In this example, it takes parameters radius and color to be set as per the value provided. 
+Step 4: The constructor Circle(double radius) : radius(radius) {}, Initializes the private radius attribute with the value passed as a a parameter to the constructor (radius(radius)). Whatever radius a user provides will be initialized for the instance they created with the help of the “this” keyword.
+Step 5: A function calculateArea to return the area of the circle. It does not need parameters since he radius of the circle is stored in any instance of circle that is created. 
+Step 6: Create an instance of the circle and providing a radius and color as an arguement and printing out the circle’s informaiton.
+------------------------------
+//Level 2- C++
+//Code
+main.cpp
+#include <iostream>
+#include <string>
+
+class Animal {
+private:
+    std::string name;
+    int age;
+
+public:
+    Animal(std::string name = "Unknown", int age = 0) : name(name), age(age) {}
+
+    // Getters
+    std::string getName() const {
+        return name;
+    }
+
+    int getAge() const {
+        return age;
+    }
+
+    // Setters
+    void setName(const std::string& newName) {
+        name = newName;
+    }
+
+    void setAge(int newAge) {
+        age = newAge;
+    }
+
+    void makeSound() {
+        std::cout << "Some generic sound" << std::endl;
+    }
+
+    void sleep() {
+        std::cout << name << " is sleeping" << std::endl;
+    }
+};
+
+// Non-friend function to overload the stream insertion operator
+std::ostream& operator<<(std::ostream& os, const Animal& animal) {
+    os << "Animal [name=" << animal.getName() << ", age=" << animal.getAge() << "]";
+    return os;
+}
+int main() {
+    // Creating instances of the Animal class using different constructors
+    Animal animal1("Lion", 5);
+    Animal animal2;
+
+    // Accessing attributes and invoking functions
+    std::cout << animal1 << std::endl;
+    std::cout << animal2 << std::endl;
+
+    // Using getters and setters
+    std::cout << "Original Name: " << animal1.getName() << std::endl;
+    animal1.setName("Tiger");
+    std::cout << "Updated Name: " << animal1.getName() << std::endl;
+
+    std::cout << "Original Age: " << animal1.getAge() << std::endl;
+    animal1.setAge(6);
+    std::cout << "Updated Age: " << animal1.getAge() << std::endl;
+
+    animal1.makeSound();
+    animal2.sleep();
+
+    return 0;
+}
+//Steps
+Step 1: Create a class called Animal, using the class keyword. 
+Step 2: The attributes "name" and “age” is marked as private, meaning it's only accessible within the Animal class itself. This is done for security reasons and it is standard practice to make all attributes private.
+Step 3: Animal(std::string name = "Unknown", int age = 0) : name(name), age(age) {}
+method is a method used for initializing objects. It takes two parameters: self (which refers to the instance of the class) and the other parameters. It sets the instance variable name to the provided name parameter value. Note that the default values if the user does not provide arguments can be set in the parentheses of the constructor.
+Step 4: The next step  is to create setters and getters. Since the attributes name and age are private, they are not accessible to other classes in the project. A setter sets the values passed as arguments to the function as attributes of the instance created. A getter simply retrieves the values already set in the instance of a class and therefore does not require any parameters. Note that there is one setter and one getter for each private attribute. 
+Step 5: Next we create methods called makeSound() and sleep() since these are functions of every animal. This Is marked as public, meaning it can be accessed from outside the class. 
+Step 6:std::ostream& operatoris an inbuilt c++ function that allows us to determine how the Animal class should be printed as a string when called with std::cout. It simply returns a string as per the user’s requirements.
+Step 7: We can now create instances of this animal class in main. Note that animal1 uses the overloaded constructor and animal2 uses the default constructor. 
+Step 8: The std::ostream& operatorfunction allows us to print an animal similar to how you can print strings or numbers without a separate print() function. 
+Step 9: All the setters, getters, and other functions of the class are called by <instance>.<functionName()>
+------------------------------
+
+//Level 3- C++
+//Code
+main.cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+class Employee {
+private:
+    static int employeeCount;
+    int employeeId;
+    std::string name;
+    std::string department;
+    double salary;
+
+public:
+    Employee(std::string name, std::string department, double salary) {
+        employeeCount++;
+        employeeId = employeeCount;
+        this->name = name;
+        this->department = department;
+        this->salary = salary;
+    }
+
+    std::string getName() {
+        return name;
+    }
+
+    std::string getDepartment() {
+        return department;
+    }
+
+    double getSalary() {
+        return salary;
+    }
+
+    friend class EmployeeManagementSystem; // Allow access to private members by the management system
+};
+
+int Employee::employeeCount = 0;
+
+class EmployeeManagementSystem {
+private:
+    std::vector<Employee> employees;
+
+public:
+    void hireEmployee(std::string name, std::string department, double salary) {
+        Employee newEmployee(name, department, salary);
+        employees.push_back(newEmployee);
+        std::cout << name << " hired successfully!" << std::endl;
+    }
+
+    void displayEmployeeDetails() {
+        std::cout << "Employee Details:" << std::endl;
+        for (Employee employee : employees) {
+            std::cout << "Name: " << employee.getName()
+                      << ", Department: " << employee.getDepartment()
+                      << ", Salary: " << employee.getSalary() << std::endl;
+        }
+    }
+};
+
+int main() {
+    EmployeeManagementSystem ems;
+
+    ems.hireEmployee("John Doe", "Engineering", 80000);
+    ems.hireEmployee("Jane Smith", "Marketing", 75000);
+
+    ems.displayEmployeeDetails();
+
+    return 0;
+}
+//Steps
+Step 1: The Employee class represents employees containing private attributes like employeeId, name, department, and salary. 
+Step 2: The constructor initializes an employee with a unique ID, provided name, department, and salary. ote that the constructor sets a value by default if the data is not provided by the user without the need for a second constructor. The getter methods (getName, getDepartment, getSalary) retrieves the name, department, and salary of an employee.
+Step 3: We create a class called EmployeeManagementSystem class and it is declared as a friend class to allow access to the private members of the Employee class. This allows the management system to access private members directly. This class manages employees. It contains a vector of Employee objects.
+Step 4: The constructor Initializes the employees list as an empty ArrayList when an EmployeeManagementSystem object is created. The double underscore __ before employees makes it a private attribute, accessible only within the class.
+Step 5: The hireEmployee Method creates a new Employee object given the employees details provided as parameters to the function, adds it to the employees list, and prints a success message. 
+Step 6: The displayEmployeeDetails method iterates through the entire arraylist of employees and displays details (name, department, salary) of each employee in the employees list.
+Step 7: Within the main class we create an instance of this EmployeeManagementSystem for a company. We use the hireEmployee method to add 2 employees and we display the details of the employees using the displayEmployeeDetails method. Rather than creating an array list of employees in main, the employee management system handles all the functions regarding management of employees which increases abstraction, encapsulation, data hiding and promotes security and efficiency.
+------------------------------

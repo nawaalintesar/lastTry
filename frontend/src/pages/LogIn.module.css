@@ -1,0 +1,57 @@
+.blankLine {
+  margin-block-start: 0;
+  margin-block-end: 1px;
+}
+.blankLine2 {
+  margin: 0;
+}
+.welcomeBackTxtContainer {
+  width: 100%;
+}
+.niceToSee,
+.welcomeBack {
+  position: absolute;
+  line-height: 6px;
+}
+.welcomeBack {
+  top: 415px;
+  left: 249px;
+  display: flex;
+  align-items: center;
+  width: 353.3px;
+  height: 69px;
+}
+.niceToSee {
+  top: 478px;
+  left: 314px;
+  font-size: 20px;
+  white-space: pre-wrap;
+  mix-blend-mode: normal;
+}
+.items,
+.logInL {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-content: stretch;
+  max-width: 100%;
+}
+.items {
+  height: 1026px;
+  background-image: url(/public/-log-in@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.logInL {
+  background-color: #1e054a;
+  height: 1024px;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: stretch;
+  text-align: center;
+  font-size: var(--font-size-13xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

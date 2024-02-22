@@ -1,0 +1,123 @@
+.identifiedOopConcept {
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 0;
+    left: 0.27%;
+    font-weight: 500;
+    font-family: Roboto;
+    display: inline-block;
+  }
+  .vectorIcon {
+    top: 82.29%;
+    right: 3.09%;
+    bottom: 6.71%;
+    left: 95.51%;    
+    transform: scaleX(-1);
+    cursor: pointer;
+  }
+  .vectorIcon,
+  .vectorIcon1,
+  .vectorIcon2,
+  .vectorIcon3 {
+    position: absolute;
+    height: 11%;
+    width: 1.4%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+
+  }
+  .vectorIcon1 {
+    top: 120px;
+    right: 0;
+    bottom: 6.71%;
+    left: 110.6%;
+    cursor: pointer;
+  }
+  .vectorIcon {
+    top:120px;
+    left: 106.8%;
+
+  }
+  .vectorIcon2 {
+    bottom: 84.71%;
+    right: 48.66%;
+    left: 49.95%;
+    cursor: pointer;
+    transform: scaleX(-1);
+
+  }
+  .vectorIcon3 {
+    bottom: 84.71%;
+    right: 48.66%;
+    left: 49.95%;
+    cursor: pointer;
+  }
+  .div,
+  .theFirstClass {
+    position: absolute;
+    height: auto;
+    width: 600px;
+    top: 27.14%;
+    left: 2px;
+    font-size: var(--font-size-4xs);
+    line-height: 168.69%;
+    display: inline-block;
+  }
+  .div {
+    height: 28.86%;
+    width: 4.5%;
+    top: 120px;
+    font-size: var(--font-size-3xs);
+  }
+  .content {
+    position: relative;
+    width: 550.6px;
+    height: 70px;
+    box-sizing: content-box;
+    display: flex;
+    align-items: stretch;
+  }
+  .step1 {
+    position: absolute;
+    z-index: 2;
+    top: 66px;
+    left: 45px;
+    border-radius: 8.72px;
+    background-color: var(--color-whitesmoke);
+    height: 150px;
+    width: 650px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) var(--padding-xs);
+    box-sizing: border-box;
+    text-align: left;
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-400);
+    font-family: var(--font-roboto);
+  }
+  
+  .implement{
+    cursor: pointer;
+    border: 0;
+    background-color: var(--color-darkorange);
+    border-radius: 5.33px;
+    box-shadow: 0 0 6.67px rgba(255, 255, 255, 0.5) inset;
+    height: 26px;
+     overflow: hidden;
+    flex-shrink: 0;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: var(--padding-9xs) var(--padding-lg);
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-6xs);
+    margin: 100px 270px;
+
+  }

@@ -1,0 +1,114 @@
+.save {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  width: 92px;
+  flex-shrink: 0;
+}
+.button,
+.buttondone {
+  position: absolute;
+  height: 28px;
+}
+.button {
+  top: 0;
+  left: 9px;
+  border-radius: 29.45px;
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 180px #9917ff, 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset,
+    0 2px 1px rgba(255, 255, 255, 0.25) inset;
+  width: 76px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-31xl);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.button:active {
+  background: linear-gradient(
+      rgba(153, 117, 232, 0.91),
+      rgba(153, 117, 232, 0.91)
+    ),
+    radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+}
+.buttondone {
+  top: 518px;
+  left: calc(50% - 53px);
+  border-radius: var(--br-3xs);
+  width: 93px;
+}
+.forgotPassword {
+  position: absolute;
+  top: 0;
+  left: 116px;
+  font-weight: 600;
+}
+.notToWorry {
+  margin: 0;
+}
+.notToWorryContainer {
+  position: absolute;
+  top: 52px;
+  left: -14px;
+  font-size: var(--font-size-smi);
+  font-weight: 300;
+  text-align: center;
+  display: inline-block;
+  width: 489px;
+}
+.frameChild {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 115px;
+  left: 63px;
+}
+.forgotPasswordParent,
+.frameforforgetpass {
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 457px;
+  height: 170px;
+}
+.frameforforgetpass {
+  top: 53px;
+  left: 31px;
+  width: 486px;
+  text-align: left;
+  font-size: var(--font-size-6xl);
+}
+.pagecrossIcon {
+  position: absolute;
+  top: 0;
+  left: 443.5px;
+  width: 7.5px;
+  height: 7px;
+  cursor: pointer;
+}
+.frameforcross {
+  position: absolute;
+  top: 32px;
+  left: 41px;
+  width: 451px;
+  height: 7px;
+  overflow: hidden;
+}
+.forgotpassPop {
+  position: relative;
+  border-radius: var(--br-6xl);
+  background-color: #242136;
+  width: 528px;
+  height: 580px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

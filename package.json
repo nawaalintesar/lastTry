@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "nodemon": "^3.0.2",
+    "react-flow": "^1.0.3",
+    "react-flow-renderer": "^10.3.17",
+    "reactflow": "^11.10.3"
+  }
+}

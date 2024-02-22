@@ -1,0 +1,391 @@
+Encapsulation
+//Tutorial Description
+A tutorial on encapsulation, demonstrating the bundling of data and methods within a class, restricting direct access to internal details. Encapsulation is like a protective bubble around an object. It involves bundling the data (attributes) and the methods (functions) that operate on that data into a single unit, a class. This not only organizes the code but also helps control access to the inner workings of an object. Imagine a TV remote - you don't need to know how it works inside; you just press the buttons to perform actions. In OOP, encapsulation keeps the inner details hidden unless they are specifically designed to be accessible. It enforces data hiding and access control which increases security. 
+If you don’t want encapsulation you define something as public. 
+If you want only the class itself to have access, you define it as private. 
+If you want the class and any of its related or child classes to have access, you define it as protected.
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Vehicle.java
+public class Vehicle {
+    private String make;
+    private String model;
+
+    public Vehicle(String make, String model) {
+        this.make = make;
+        this.model = model;
+    }
+
+    public void displayInfo() {
+        System.out.println("Vehicle Make: " + make);
+        System.out.println("Vehicle Model: " + model);
+    }
+
+    public static void main(String[] args) {
+        Vehicle myCar = new Vehicle("Toyota", "Camry");
+        myCar.displayInfo();
+    }
+}
+//Steps
+Step 1: Create a class called vehicle.
+Step 2: Identify the attributes for the class and define their data types. We have decided to add 2 attributes to the car class called make and model. 
+Step 3: Define how you want to secure your class. Common practice is that the class itself is defined as public or protected to ensure we can create instances of the class in the main class. Similarly the attributes are always defined as private or protected to ensure only the class itself or related classes can read sensitive information about the class. This allows for encapsulation and data hiding. 
+Step 4: Create a constructor and a displayInfo function to create instances and print out the details of an object created with this template.
+Step 5: In the main, create an instance of a class and use display info to display the encapsulated data instead of calling the private make and model directly.
+------------------------------
+
+
+//Level 2- Java
+//Code
+***
+BankAccount.java
+public class BankAccount {
+    private String accountNumber;
+    private double balance;
+
+    public BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        setBalance(initialBalance);
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        if (balance >= 0) {
+            this.balance = balance;
+        } else {
+            System.out.println("Invalid balance value");
+        }
+    }
+
+    public static void main(String[] args) {
+        // Creating an instance of BankAccount
+        BankAccount myAccount = new BankAccount("123456789", 1000.0);
+
+        // Accessing the balance through the public method
+        System.out.println("Initial Balance: " + myAccount.getBalance());
+
+        // Modifying the balance using the setter method
+        myAccount.setBalance(1500.0);
+
+        // Displaying the updated balance
+        System.out.println("Updated Balance: " + myAccount.getBalance());
+
+        // Attempting to set a negative balance
+        myAccount.setBalance(-500.0);
+    }
+}
+
+
+
+//Steps
+Step 1: Create a class called BankAccount.
+Step 2: Containing 2 private attributes like accountNumber of type String and balance of type double. Since this is confidential data encapsulating it is essential to ensure data hiding.
+Step 3: The constructor BankAccount(String accountNumber, double initialBalance), Initializes the accountNumber with the provided value and sets the balance using the setBalance method, ensuring that the balance is not negative.
+Step 4: A 'get' method retrieves the value of a private or protected class member, providing controlled access to that data from outside the class . double getBalance(), returns the balance of the bank account. 
+Step 5: A 'set' method modifies or updates the value of a private or protected class member, providing controlled modification of that data from outside the class. void setBalance(double balance), sets the balance of the bank account. It performs a check to ensure the provided balance is not negative before updating the attribute. If the provided balance is negative, it prints "Invalid balance value". 
+Step 6: The setters and getters ensure that encapsulated data can still be accessed and modified from outside the class if required.
+Step 7: In the main class create an instance of an account and test out the setters and getters.
+------------------------------
+
+//Level 3- Java
+//Code
+***
+MessageSystem.java
+public class MessageSystem {
+    private String message;
+
+
+    public void sendMessage(String sender, String content) {
+        // Additional logic, validation, or processing can be performed here
+        this.message = sender + ": " + content;
+        System.out.println("Message sent: " + this.message);
+    }
+
+
+    public String receiveMessage() {
+        // Additional logic or processing can be added here
+        return this.message;
+    }
+
+
+    public static void main(String[] args) {
+        MessageSystem messageSystem = new MessageSystem();
+
+
+        // Sending a message
+        messageSystem.sendMessage("Alice", "Hello, Bob!");
+
+
+        // Receiving a message
+        String receivedMessage = messageSystem.receiveMessage();
+        System.out.println("Received Message: " + receivedMessage);
+    }
+}
+
+
+
+//Steps
+Step 1: The MessageSystem class is the blueprint for a message transfer system similar to an inbox. Its attribute is a private String message. 
+Step 2: The functions of the system are to send and receive messages. Since this is a highly sensetive operation it is necessary to encapsulate the message appropriately.
+Step 3: In the main function that is executed publically, a new message system is declared for a client. This message system is intialized with a message to be sent. Note that although this function is not explicitly a setter it does perform a similar function.
+Step 4: The received message is only accessible via the management system's receive message function.It works as a getter. In this example, the message variable is encapsulated within the MessageSystem class. The internal state is accessed and modified only through the sendMessage and receiveMessage methods.
+------------------------------
+
+
+//Level 1- Python
+//Code
+***
+Vehicle.py
+class Vehicle:
+    def __init__(self, make, model):
+        self.make = make 
+        self.model = model 
+
+    def display_info(self):
+        print(f"Vehicle Make: {self.make}")
+        print(f"Vehicle Model: {self.model}")
+
+# Creating an instance of Vehicle
+my_car = Vehicle("Toyota", "Camry")
+my_car.display_info()
+
+
+
+//Steps
+Step 1: Create a class called car, using the class keyword in python. 
+Step 2: Identify the attributes for the class. We have decided to add 2 attributes to the car class called brand which will store the brand name and year for storing the manufacturing year.
+Step 3: Define how you want to secure your class. Common practice is that the class itself is defined as public or protected to ensure we can create instances of the class in the main class. Similarly the attributes are always defined as private or protected to ensure only the class itself or related classes can read sensitive information about the class. This allows for encapsulation and data hiding.
+Step 4: Create a constructor and a displayInfo function to create instances and print out the details of an object created with this template.
+Step 5 : Create an instance of a class and use display info to display the encapsulated data instead of calling the private make and model directly.
+------------------------------
+
+//Level 2- Python
+//Code
+***
+BankAccount.py
+class BankAccount:
+    def __init__(self, account_number, initial_balance):
+        self.account_number = account_number
+        self._balance = 0  # Private attribute, conventionally marked with an underscore
+        self.set_balance(initial_balance)
+
+    def get_balance(self):
+        return self._balance
+
+    def set_balance(self, balance):
+        if balance >= 0:
+            self._balance = balance
+        else:
+            print("Invalid balance value")
+
+# Creating an instance of BankAccount
+my_account = BankAccount("123456789", 1000.0)
+
+# Accessing the balance through the public method
+print("Initial Balance:", my_account.get_balance())
+
+# Modifying the balance using the setter method
+my_account.set_balance(1500.0)
+
+# Displaying the updated balance
+print("Updated Balance:", my_account.get_balance())
+
+# Attempting to set a negative balance
+my_account.set_balance(-500.0)
+
+
+//Steps
+Step 1: Create a class called BankAccount.
+Step 2: Containing 2 attributes like self._account_number and self._balance. Self is essentially a way to refer to and access the attributes and methods of a particular instance of the class within its own methods.Since this is confidential data encapsulating it is essential to ensure data hiding. In Python, encapsulation is often achieved through naming conventions and the use of underscores to indicate the visibility of attributes and methods. This is why balance has _balance.
+Step 3: The constructor (__init__), Initializes the account number and baance with the provided values.
+Step 4: The @property decorator on the balance method creates a way to access the _balance attribute. The balance() method is like asking, "What's the balance in this account?"
+When you call bank_account.balance, it gives you the _balance value without needing parentheses (like a variable access).
+Step 5: The @balance.setter is called a decorator. It allows you to update an existing the _balance attribute.
+The balance = value statement is like saying, "Let's set the balance of this account."
+It checks if the new value being set is non-negative. If it is, it updates _balance. If not, it prints "Invalid balance value."
+Step 6: The setters and getters ensure that encapsulated data can still be accessed and modified from outside the class if required.
+Step 7: In the main class create an instance of an account and test out the setters and getters.
+------------------------------
+
+//Level 3- Python
+//Code
+***
+MessageSystem.py
+class MessageSystem:
+    def __init__(self):
+        self._message = None
+
+    def send_message(self, sender, content):
+        # Additional logic, validation, or processing can be performed here
+        self._message = f"{sender}: {content}"
+        print(f"Message sent: {self._message}")
+
+    def receive_message(self):
+        # Additional logic or processing can be added here
+        return self._message
+
+if __name__ == "__main__":
+    message_system = MessageSystem()
+
+    # Sending a message
+    message_system.send_message("Alice", "Hello, Bob!")
+
+    # Receiving a message
+    received_message = message_system.receive_message()
+    print(f"Received Message: {received_message}")
+
+
+
+//Steps
+Step 1: The MessageSystem class is the blueprint for a message transfer system similar to an inbox. Its attribute is a private String message. 
+Step 2: The functions of the system are to send and receive messages. Since this is a highly sensetive operation it is necessary to encapsulate the message appropriately.
+Step 3: In the main function that is executed publically, a new message system is declared for a client. This message system is intialized with a message to be sent. Note that although this function is not explicitly a setter it does perform a similar function.
+Step 4: The received message is only accessible via the management system's receive message function. It works as a getter. In this example, the message variable is encapsulated within the MessageSystem class. The internal state is accessed and modified only through the sendMessage and receiveMessage methods.
+------------------------------
+
+//Level 1- C++
+//Code
+***
+Vehicle.cpp
+#include <iostream>
+
+class Vehicle {
+private:
+    std::string make;
+    std::string model;
+
+public:
+    Vehicle(std::string make, std::string model) : make(make),(model) {}
+
+    void display_info() const {
+        std::cout << "Vehicle Make: " << make << std::endl;
+        std::cout << "Vehicle Model: " << model << std::endl;
+    }
+};
+
+int main() {
+    // Creating an instance of Vehicle
+    Vehicle my_car("Toyota", "Camry");
+    my_car.display_info();
+
+    return 0;
+}
+
+
+
+//Steps
+Step 1: Create a class called car, using the class keyword in python. 
+Step 2: Identify the attributes for the class. We have decided to add 2 attributes to the car class called brand which will store the brand name and year for storing the manufacturing year.
+Step 3: Define how you want to secure your class. Common practice is that the class itself is defined as public or protected to ensure we can create instances of the class in the main class. Similarly the attributes are always defined as private or protected to ensure only the class itself or related classes can read sensitive information about the class. This allows for encapsulation and data hiding.
+Step 4: Create a constructor and a displayInfo function to create instances and print out the details of an object created with this template.
+Step 5 : Create an instance of a class and use display info to display the encapsulated data instead of calling the private make and model directly.
+------------------------------
+//Level 2- C++
+//Code
+***
+BankAccount.cpp
+#include <iostream>
+
+class BankAccount {
+private:
+    std::string account_number;
+    double balance;
+
+public:
+    BankAccount(std::string account_number, double initial_balance) : account_number(account_number) {
+        set_balance(initial_balance);
+    }
+
+    double get_balance() const {
+        return balance;
+    }
+
+    void set_balance(double new_balance) {
+        if (new_balance >= 0) {
+            balance = new_balance;
+        } else {
+            std::cout << "Invalid balance value" << std::endl;
+        }
+    }
+};
+
+int main() {
+    // Creating an instance of BankAccount
+    BankAccount my_account("123456789", 1000.0);
+
+    // Accessing the balance through the public method
+    std::cout << "Initial Balance: " << my_account.get_balance() << std::endl;
+
+    // Modifying the balance using the setter method
+    my_account.set_balance(1500.0);
+
+    // Displaying the updated balance
+    std::cout << "Updated Balance: " << my_account.get_balance() << std::endl;
+
+    // Attempting to set a negative balance
+    my_account.set_balance(-500.0);
+
+    return 0;
+}
+
+
+//Steps
+Step 1: Create a class called BankAccount.
+Step 2: Containing 2 attributes like std::string accountNumber which stores the account number as a string and double balance which holds the account's balance. Since this is confidential data encapsulating it is essential to ensure data hiding.
+Step 3: The constructor BankAccount(const std::string& accountNumber, double initialBalance), Initializes the account number and balance with the provided values.
+Step 4: A 'get' method retrieves the value of a private or protected class member, providing controlled access to that data from outside the class. The double getBalance() const: Provides a way to access the balance value. When you call bankAccount.getBalance(), it retrieves and returns the balance value without allowing modifications.
+Step 5: A 'set' method modifies or updates the value of a private or protected class member, providing controlled modification of that data from outside the class. void setBalance(double balance): Sets a new balance value for the account.
+It checks if the new balance value is non-negative. If it is, it updates the balance. If not, it outputs "Invalid balance value" to the console.
+Step 6: The setters and getters ensure that encapsulated data can still be accessed and modified from outside the class if required.
+Step 7: In the main class create an instance of an account and test out the setters and getters.
+------------------------------
+
+//Level 3- C++
+//Code
+***
+MessageSystem.cpp
+#include <iostream>
+#include <string>
+
+class MessageSystem {
+private:
+    std::string message;
+
+public:
+    void send_message(const std::string& sender, const std::string& content) {
+        // Additional logic, validation, or processing can be performed here
+        message = sender + ": " + content;
+        std::cout << "Message sent: " << message << std::endl;
+    }
+
+    std::string receive_message() {
+        // Additional logic or processing can be added here
+        return message;
+    }
+};
+
+int main() {
+    MessageSystem message_system;
+
+    // Sending a message
+    message_system.send_message("Alice", "Hello, Bob!");
+
+    // Receiving a message
+    std::string received_message = message_system.receive_message();
+    std::cout << "Received Message: " << received_message << std::endl;
+
+    return 0;
+}
+
+//Steps
+Step 1: The MessageSystem class is the blueprint for a message transfer system similar to an inbox. Its attribute is a private String message. 
+Step 2: The functions of the system are to send and receive messages. Since this is a highly sensitive operation it is necessary to encapsulate the message appropriately.
+Step 3: In the main function that is executed publically, a new message system is declared for a client. This message system is intialized with a message to be sent. Note that although this function is not explicitly a setter it does perform a similar function.
+Step 4: The received message is only accessible via the management system's receive message function. It works as a getter. In this example, the message variable is encapsulated within the MessageSystem class. The internal state is accessed and modified only through the sendMessage and receiveMessage methods.
+------------------------------
+

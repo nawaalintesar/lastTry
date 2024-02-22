@@ -1,0 +1,54 @@
+.aboutThisTutorial {
+  position: absolute;
+  top: 0;
+  right: 109px;
+  font-size: var(--font-size-6xl);
+  text-align: justify;
+  display: inline-block;
+  width: 362px;
+}
+.classesDefineThe,
+.classesDefineThe1 {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  display: inline-block;
+  width: 600px;
+  height: 900px;
+}
+.classesDefineThe1 {
+  top: 50px;
+  height: 900px;
+}
+.text,
+.textParent {
+  position: absolute;
+  top: 339px;
+  left: 15px;
+  width: 471px;
+  height: 400px;
+}
+.textParent {
+  top: 180px;
+  left: 147px;
+  width: 80%;
+  height: 663px;
+  overflow: hidden;
+  display: flex;
+  align-content: space-between;
+  max-width: 100%;
+}
+.GenericTutorial {
+  position: relative;
+  background: linear-gradient(180.46deg, #251849, #251849 0.01%, #18113b);
+  width: 100%;
+  height: 1075px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+.GenericTutorial:hover {
+  filter: drop-shadow(0 4px 4px 5px rgba(104, 63, 234, 0.25));
+}

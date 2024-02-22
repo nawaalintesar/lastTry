@@ -1,0 +1,366 @@
+Polymorphism
+//Tutorial Description
+A guide explaining polymorphism, showcasing the ability of objects to take multiple forms through methods or operators. The word polymorphism comes from the combination of "poly" meaning many and "morphos" meaning form or shape. it therefore helps to describe a single entity (such as a class or an object) having the ability to manifest or exhibit multiple forms or behaviors in different situations.The ability of objects to take on multiple forms often involves method overriding and method overloading. It is most commonly used when there is inheritance. Instead of storing arrays of cars buses and trucks separately, it would be much simpler to store them in a single array of vehicles and allow the vehicle type to manifest automatically.
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Shape.java
+class Shape
+{
+public void display()
+{
+System.out.println("A Shape.");
+}
+}
+***
+Triangle.java
+class Triangle extends Shape
+{
+public void display()
+{
+System.out.println("I am a triangle.");
+}
+}
+***
+Main.java
+class Main{
+public static void main(String[] args)
+{
+Shape obj;
+obj = new Shape();
+obj.display();
+obj = new Triangle();
+obj.display();
+}
+} 
+//Steps
+------------------------------
+
+
+//Level 2- Java
+//Code
+***
+Animal.java
+class Animal{  
+  void eat(){
+System.out.println("Animals Eat");
+}  
+}  
+
+class herbivores extends Animal{  
+  void eat(){
+System.out.println("Herbivores Eat Plants");
+} 
+  }
+class omnivores extends Animal{  
+  void eat(){
+System.out.println("Omnivores Eat Plants and meat");
+} 
+  }
+class carnivores extends Animal{  
+  void eat(){
+System.out.println("Carnivores Eat meat");
+} 
+  }
+class main{
+  public static void main(String args[]){ 
+    Animal A = new Animal();
+    Animal h = new herbivores(); //upcasting  
+	Animal o = new omnivores(); //upcasting  
+    Animal c = new carnivores(); //upcasting  
+    A.eat();
+    h.eat();
+    o.eat();  
+    c.eat();  
+  
+  }  
+}
+//Steps
+------------------------------
+
+//Level 3- Java
+//Code
+***
+Logger.java
+// Logger interface
+interface Logger {
+    void log(String message);
+}
+***
+ConsoleLogger.java
+// Console Logger implementation
+class ConsoleLogger implements Logger {
+    @Override
+    public void log(String message) {
+        System.out.println("[Console] " + message);
+    }
+}
+***
+FileLogger.java
+// File Logger implementation
+class FileLogger implements Logger {
+    private String fileName;
+
+    public FileLogger(String fileName) {
+        this.fileName = fileName;
+    }
+
+    @Override
+    public void log(String message) {
+        // Code to log to a file (implementation details not shown)
+        System.out.println("[File] Logging to file " + fileName + ": " + message);
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create instances of different loggers
+        Logger consoleLogger = new ConsoleLogger();
+        Logger fileLogger = new FileLogger("log.txt");
+
+        // Use polymorphism to log messages
+        logMessage(consoleLogger, "This message goes to the console.");
+        logMessage(fileLogger, "This message goes to the file.");
+    }
+
+    // Utilize polymorphism to log messages through different loggers
+    private static void logMessage(Logger logger, String message) {
+        logger.log(message);
+    }
+}
+
+//Steps
+------------------------------
+//Level 1- Python
+//Code
+***
+main.py
+class Shape:
+    def display(self):
+        print("A Shape.")
+
+class Triangle(Shape):
+    def display(self):
+        print("I am a triangle.")
+
+obj = Shape()
+obj.display()
+
+obj = Triangle()
+obj.display()
+
+//Steps
+------------------------------
+
+//Level 2- Python
+//Code
+***
+main.py
+class Animal:
+    def eat(self):
+        print("Animals Eat")
+
+class Herbivores(Animal):
+    def eat(self):
+        print("Herbivores Eat Plants")
+
+class Omnivores(Animal):
+    def eat(self):
+        print("Omnivores Eat Plants and meat")
+
+class Carnivores(Animal):
+    def eat(self):
+        print("Carnivores Eat meat")
+
+A = Animal()
+h = Herbivores()
+o = Omnivores()
+c = Carnivores()
+
+A.eat()
+h.eat()
+o.eat()
+c.eat()
+//Steps
+------------------------------
+//Level 3- Python
+//Code
+***
+main.py
+# Logger interface in Python
+class Logger:
+    def log(self, message):
+        raise NotImplementedError("Subclasses must implement the 'log' method")
+
+# Console Logger implementation
+class ConsoleLogger(Logger):
+    def log(self, message):
+        print("[Console] " + message)
+
+# File Logger implementation
+class FileLogger(Logger):
+    def __init__(self, file_name):
+        self.file_name = file_name
+
+    def log(self, message):
+        # Code to log to a file (implementation details not shown)
+        print("[File] Logging to file {}: {}".format(self.file_name, message))
+
+def log_message(logger, message):
+    logger.log(message)
+
+if __name__ == "__main__":
+    # Create instances of different loggers
+    console_logger = ConsoleLogger()
+    file_logger = FileLogger("log.txt")
+
+    # Use polymorphism to log messages
+    log_message(console_logger, "This message goes to the console.")
+    log_message(file_logger, "This message goes to the file.")
+
+//Steps
+------------------------------
+//Level 1- C++
+//Code
+***
+main.cpp
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void display() {
+        cout << "A Shape." << endl;
+    }
+};
+
+class Triangle : public Shape {
+public:
+    void display() override {
+        cout << "I am a triangle." << endl;
+    }
+};
+
+int main() {
+    Shape *obj1 = new Shape();
+    obj1->display();
+
+    Shape *obj2 = new Triangle();
+    obj2->display();
+
+    delete obj1;
+    delete obj2;
+    return 0;
+}
+
+//Steps
+------------------------------
+//Level 2- C++
+//Code
+***
+main.cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void eat() {
+        cout << "Animals Eat" << endl;
+    }
+};
+
+class Herbivores : public Animal {
+public:
+    void eat() override {
+        cout << "Herbivores Eat Plants" << endl;
+    }
+};
+
+class Omnivores : public Animal {
+public:
+    void eat() override {
+        cout << "Omnivores Eat Plants and meat" << endl;
+    }
+};
+
+class Carnivores : public Animal {
+public:
+    void eat() override {
+        cout << "Carnivores Eat meat" << endl;
+    }
+};
+
+int main() {
+    Animal A;
+    Herbivores h;
+    Omnivores o;
+    Carnivores c;
+
+    A.eat();
+    h.eat();
+    o.eat();
+    c.eat();
+
+    return 0;
+}
+
+//Steps
+------------------------------
+
+//Level 3- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <fstream>
+
+// Logger interface in C++
+class Logger {
+public:
+    virtual void log(const std::string& message) = 0;
+};
+
+// Console Logger implementation
+class ConsoleLogger : public Logger {
+public:
+    void log(const std::string& message) override {
+        std::cout << "[Console] " << message << std::endl;
+    }
+};
+
+// File Logger implementation
+class FileLogger : public Logger {
+private:
+    std::string fileName;
+
+public:
+    FileLogger(const std::string& fileName) : fileName(fileName) {}
+
+    void log(const std::string& message) override {
+        // Code to log to a file (implementation details not shown)
+        std::cout << "[File] Logging to file " << fileName << ": " << message << std::endl;
+    }
+};
+
+int main() {
+    // Create instances of different loggers
+    ConsoleLogger consoleLogger;
+    FileLogger fileLogger("log.txt");
+
+    // Use polymorphism to log messages
+    logMessage(consoleLogger, "This message goes to the console.");
+    logMessage(fileLogger, "This message goes to the file.");
+
+    return 0;
+}
+
+// Utilize polymorphism to log messages through different loggers
+void logMessage(Logger& logger, const std::string& message) {
+    logger.log(message);
+}
+
+//Steps
+
+------------------------------

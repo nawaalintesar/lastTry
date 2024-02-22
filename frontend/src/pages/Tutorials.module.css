@@ -1,0 +1,338 @@
+@keyframes shadow-drop-bottom {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+  }
+}
+.backgroundimageIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 867px;
+  object-fit: cover;
+  display: flex;
+  align-content: stretch;
+  max-width: 100%;
+}
+.allTutorials,
+.continueTheJourney {
+  overflow: hidden;
+  position: absolute;
+  top: 37px;
+  left: 87px;
+}
+.allTutorials {
+  top: 405px;
+  left: 90px;
+
+}
+.methodoverloadingoverriddingtChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-darkslategray-300);
+  width: 200px;
+  height: 240px;
+}
+.methodoverloadingoverriddingtItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xl) var(--br-xl) 0 0;
+  background: linear-gradient(92.09deg, #be4444 36.98%, #a41717);
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
+  width: 200px;
+  height: 58px;
+}
+.inOopOverriding {
+  position: absolute;
+  top: 100px;
+  left: 12px;
+  letter-spacing: 0.02em;
+  line-height: 100%;
+  display: inline-block;
+  width: 175px;
+  height: 94px;
+}
+.methodOverloading {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.overriding {
+  margin: 0;
+}
+.methodOverloadingOverridingContainer {
+  position: absolute;
+  top: 14px;
+  left: 2px;
+  font-size: var(--font-size-sm);
+  line-height: 110%;
+  font-weight: 500;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  display: inline-block;
+  width: 190px;
+  height: 13px;
+}
+.methodoverloadingoverriddingt {
+  position: absolute;
+  top: 101px;
+  left: 0;
+  width: 200px;
+  height: 240px;
+  cursor: pointer;
+}
+.comprehensiveooptut:hover,
+.methodoverloadingoverriddingt:hover {
+  filter: drop-shadow(0 4px 4px rgba(164, 23, 23, 0.7));
+  animation: 1s ease 0s infinite normal none shadow-drop-bottom;
+  opacity: 1;
+}
+.comprehensiveooptutItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xl) var(--br-xl) 0 0;
+  background: linear-gradient(92.09deg, #459e9e 36.98%, #127575);
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
+  width: 200px;
+  height: 53px;
+}
+.anOverviewOf,
+.comprehensiveOopOverviewContainer {
+  position: absolute;
+  top: 100px;
+  left: 12px;
+  line-height: 110%;
+  font-weight: 300;
+  display: inline-block;
+  width: 175px;
+  height: 94px;
+}
+.comprehensiveOopOverviewContainer {
+  top: 14px;
+  left: 2px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-white);
+  width: 190px;
+  height: 30px;
+}
+.comprehensiveooptut,
+.searchBar {
+  position: absolute;
+  font-family: var(--font-poppins);
+}
+.comprehensiveooptut {
+  top: 101px;
+  left: 825px;
+  width: 200px;
+  height: 240px;
+  cursor: pointer;
+  font-size: var(--font-size-2xs);
+}
+.comprehensiveooptut:hover {
+  filter: drop-shadow(0 4px 4px rgba(18, 117, 117, 0.7));
+}
+.searchBar {
+  border: 0;
+  background-color: transparent;
+  top: 0;
+  left: 2px;
+  font-size: var(--font-size-sm);
+  color: var(--color-lightsteelblue-200);
+  
+}
+/* .alltutorials { */
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 96px; */
+  /* position: absolute;
+  top: 476px; */
+  /* left: 87px; */
+  /* height: 370px;
+  flex: wrap; */
+/* 
+  display:flex;
+  justify-content: center; */
+  /* flex-wrap: wrap; */
+  /* align-content: space-evenly;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-smi);
+  color: var(--color-darkgray);
+  font-family: var(--font-pt-sans); */
+  /*Max-height and overflow r the css for the scroll bar*/
+  /* max-height: 500px;
+  overflow-y: hidden; */
+  /* @media (max-width: 768px) {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    /* align-items: center; Center cards on smaller screens
+  }
+} */ 
+.alltutorials {
+  position: absolute;
+  top: 476px;
+  height: 370px;
+  display: flex;
+  justify-content: center;
+  align-content: space-evenly;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-smi);
+  color: var(--color-darkgray);
+  font-family: var(--font-pt-sans);
+}
+
+.alltutorialsrow2 {
+  position: absolute;
+  top: 750px; /* Adjust the top position for the second row */
+  height: 370px;
+  bottom: 50px;
+  display: flex;
+  padding-bottom: 50px;
+  justify-content: center;
+  align-content: space-evenly;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-smi);
+  color: var(--color-darkgray);
+  font-family: var(--font-pt-sans);
+}
+
+/* .alltutorials2 {
+  position: absolute;
+  top: 476px;
+  left: 87px;
+  width: 85%;
+  height: 370px;
+  display: flex;
+  align-content: space-evenly;
+  max-width: 100%;
+  justify-content: space-between;
+  text-align: center;
+  font-size: var(--font-size-smi);
+  color: var(--color-darkgray);
+  font-family: var(--font-pt-sans);
+} */
+
+.items,
+.Tutorials {
+  width: 100%;
+  overflow: hidden;
+}
+.items {
+  /*overflow-y: auto;*/
+  position: absolute;
+  top: 76px;
+  left: 62px;
+  height: 870px;
+  display: flex;
+  align-content: stretch;
+  max-width: 100%;
+  justify-content: space-between;
+  padding-left: 90px;
+}
+.Tutorials {
+  overflow-y: auto;
+  position: absolute;
+  background: linear-gradient(180.46deg, #251849, #251849 0.01%, #18113b);
+  height: 1075px;
+  text-align: left;
+  font-size: var(--font-size-7xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+.Tutorials:hover {
+  filter: drop-shadow(0 4px 4px 5px rgba(104, 63, 234, 0.25));
+}
+
+
+.slidercontainer {
+  /* position: relative;
+  width: 400%;
+  overflow: hidden;
+  top: 500px;
+  left: -200px; */
+  position: absolute;
+    width: 900px;
+    /* overflow: hidden; */
+    top: 480px;
+}
+
+
+.slider {
+  left: 25px;
+  position: absolute;
+  display: flex;
+  width: 700%; /* Adjust this value based on the number of slides */
+  transition: transform 5s ease;  /* Add transition for smooth sliding effect */
+}
+
+.slider img {
+  width: 55%; /* Adjust this value based on the number of slides */
+  height: auto;
+  object-fit: cover;
+}
+
+ .prev, .next {
+  position: absolute;
+  top: 220px;
+    /* left: 10px; */
+   
+  /* left: 10px; */
+ transform: translateY(-50%); 
+  width: 20px;
+  margin-left: 10px;
+  /* padding: 6px; */
+  background-color: rgba(244, 240, 240, 0.5);
+  border: none;
+  cursor: pointer;
+}
+
+.next {
+  left: 1095px;
+}
+
+.dotsContainer {
+  /* margin-top: 10px;
+  text-align: center;
+  display: inline-block;
+  gap: 5px;
+  left: 40px;
+  position: absolute;  */
+  margin-top: 10px;
+  text-align: center;
+  display: flex; /* Set to flex container */
+  justify-content: center; /* Center the dots horizontally */
+  gap: 5px;
+  
+  transform: translateX(-50%); /* Center the container */
+  position: absolute; 
+  left: 560px;
+    top: 340px;
+  
+}
+
+.dot{
+  height: 10px;
+  width: 10px;
+  background-color: #481475;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+
+  background-color: #11c0e8;
+}
+

@@ -1,0 +1,143 @@
+.signUp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 415px;
+  height: 20px;
+}
+.frame {
+  align-self: stretch;
+  position: relative;
+  height: 70.3px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.frame2,
+.frame3 {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 60px;
+  left: 216px;
+  font-family: var(--font-poppins);
+  font-size: var(--font-size-base);
+}
+.frame3 {
+  left: 7px;
+  width: 190px;
+}
+.frame2{
+  right:20px;
+  width: 190px;
+}
+.frame1 {
+  align-self: stretch;
+  position: relative;
+  border-radius: var(--br-3xs);
+  height: 49px;
+}
+.email{
+  width: 400px;
+  border: 0;
+  top:40px;
+  font-family: var(--font-poppins);
+  background-color: transparent;
+  position: relative;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+}
+.frame5,
+.password,
+.signupform {
+  font-family: var(--font-poppins);
+}
+.password {
+  border: 0;
+  top:50px;
+  width: 400px;
+  background-color: transparent;
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-base);
+}
+
+.confirmPassword {
+  border: 0;
+  top:60px;
+  width: 400px;
+  background-color: transparent;
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-base);
+}
+.signupform {
+  position: relative;
+  top: 224px;
+  left: 889px;
+  width: 415px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  text-align: center;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+}
+.Google{
+  top: 90px;
+  left:30px;
+  position: relative;
+}
+.button {
+  position: absolute;
+  top: 460px;
+  left: 65px;
+  border-radius: 29.45px;
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 180px #9917ff, 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset,
+    0 2px 1px rgba(255, 255, 255, 0.25) inset;
+  width: 285px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-45xl);
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: var(--font-size-lgi);
+  color: white;
+  font-family: var(--font-poppins);
+}
+.text {
+  flex: 1;
+  position: relative;
+  font-weight: 800;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px #412e81 inset !important;
+}
+
+.joinVoop{
+  position: absolute;
+  font-size: var(--font-size-mini);
+  line-height: 6px;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  top:420px;
+  left:75px;
+  font-weight: 600;
+}
+
+.loginLink {
+  color:#f9ae68 ;
+  cursor:pointer;
+  font-weight: 600;
+}

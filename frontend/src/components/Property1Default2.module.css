@@ -1,0 +1,142 @@
+.codeEditor {
+  position: relative;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--white-default);
+  text-align: center;
+  display: inline-block;
+  width: 114px;
+  flex-shrink: 0;
+}
+.button,
+.buttonWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 118px;
+  height: 37px;
+}
+.button {
+  border-radius: var(--br-smi);
+  background: linear-gradient(180deg, #fb902c 11.46%, #fda905 58.85%);
+  box-shadow: 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-31xl);
+  box-sizing: border-box;
+  color: white;
+  font-family: var(--font-poppins);
+}
+.button:hover {
+  background-color: var(--color-gray-600);
+  border-radius: var(--br-xl);
+}
+.buttonWrapper {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.vo {
+  margin-block-start: 0;
+  margin-block-end: 1px;
+}
+.op {
+  margin: 0;
+}
+.voOpTxtContainer {
+  line-break: anywhere;
+  width: 100%;
+}
+.voOp {
+  position: absolute;
+  top: 0;
+  left: 568px;
+  letter-spacing: 0.1em;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  width: 55px;
+  height: 32px;
+  cursor: pointer;
+}
+.text {
+  position: relative;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--white-default);
+  text-align: left;
+  display: inline-block;
+  width: 62px;
+  flex-shrink: 0;
+}
+.button1 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-smi) var(--padding-31xl);
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 1147px;
+  border-radius: var(--br-smi);
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset;
+  width: 142px;
+  height: 36px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: white;
+  font-family: var(--font-poppins);
+}
+.button1:hover {
+  background: linear-gradient(rgba(104, 63, 234, 0.7), rgba(104, 63, 234, 0.7)),
+    radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  border-radius: var(--br-xl);
+}
+.frameParent,
+.property1default {
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+ 
+}
+.frameParent {
+  position: absolute;
+  height: 45.68%;
+  top: 27.16%;
+  right: 2.04%;
+  bottom: 27.16%;
+  left: 3.14%;
+  align-content: space-between;
+  max-width: 100%;
+}
+.property1default {
+  height: 81px;
+  position: absolute;
+  align-content: space-evenly;
+  max-height: 100%;
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--white-default);
+  font-family: var(--font-press-start-2p);
+}
+@media screen and (max-width: 1200px) {
+  .property1default {
+    align-content: stretch;
+    display: flex;
+    width: 100%;
+    max-height: 100%;
+    justify-content: stretch;
+  }
+}

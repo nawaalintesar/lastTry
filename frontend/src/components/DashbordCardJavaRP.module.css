@@ -1,0 +1,91 @@
+.javaRecentprojectsChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background: linear-gradient(180deg, #006b9a, #459cc1);
+  width: 300px;
+  height: 237px;
+  
+}
+.javaRecentprojectsItem {
+  position: absolute;
+  top: 151px;
+  left: 0;
+  border-radius: 0 0 var(--br-3xs) var(--br-3xs);
+  width: 300px;
+  height: 86px;
+  object-fit: cover;
+}
+.java {
+  position: relative;
+  line-height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+}
+.javaRecentprojectsInner,
+.javaWrapper {
+  position: absolute;
+  width: 71px;
+  height: 22px;
+}
+.javaWrapper {
+  top: -10px;
+  left: 0;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-7xs);
+  box-sizing: border-box;
+}
+.javaRecentprojectsInner {
+  top: 41px;
+  left: 21px;
+  border-radius: var(--br-3xs) var(--br-3xs) 0 0;
+  font-family: var(--font-pt-sans);
+}
+.animalsLab5,
+.lastUpdated7 {
+  position: absolute;
+  line-height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.animalsLab5 {
+  top: 76px;
+  left: 20px;
+  font-size: var(--font-size-mini);
+  font-weight: 600;
+  color: var(--color-white);
+}
+.lastUpdated7 {
+  top: 96px;
+left:-10px;
+  font-size: var(--font-size-3xs);
+  color: var(--color-darkslategray-200);
+  width: 200px;
+  height: 12px;
+}
+.javaRecentprojects {
+  position: absolute;
+  top: 48px;
+  left: 100px;
+  border-radius: var(--br-3xs);
+  width: 300px;
+  height: 236px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-midnightblue-300);
+  font-family: var(--font-poppins);
+}
+.javaRecentprojects:hover {
+  border-radius: var(--br-xl);
+}

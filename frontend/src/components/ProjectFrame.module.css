@@ -1,0 +1,66 @@
+.edited5Min,
+.project1 {
+  position: absolute;
+  top: 35px;
+  left: 81px;
+  width: 900px;
+  cursor:pointer;
+}
+.project1 {
+  top: 14px;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  width: 900px;
+}   
+.projectbox {
+  top: 8px;
+  left: 14px;
+  border-radius: var(--br-8xs);
+  background: linear-gradient(139.01deg, #8775df, #7a59b5 93.23%);
+  width: 50px;
+  height: 50px;
+}
+.editMinus,
+.j,
+.projectbox {
+  position: absolute;
+}
+/* .editMinus {
+  top: 25px;
+  left: 1074px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  object-fit: cover;
+} */
+.editMinus {
+  top: 26px;
+  left: 1074px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.j {
+  top: 17px;
+  left: 34px;
+  font-size: var(--font-size-xl);
+  color: var(--color-lavender);
+}
+.projectframe {
+  border-bottom: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+  width: 1113px;
+  height: 75px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-lightslategray);
+  font-family: var(--font-poppins);
+  position: relative;
+}
+
+.projectframe:hover {
+  border-left: 3px solid;
+  border-left-color: #2d2360;
+}

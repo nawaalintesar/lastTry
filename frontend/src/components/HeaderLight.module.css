@@ -1,0 +1,117 @@
+.codeEditor {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  width: 102px;
+  flex-shrink: 0;
+}
+.button {
+  border-radius: var(--br-smi);
+  background: linear-gradient(180deg, #fb902c 11.46%, #fda905 58.85%);
+  box-shadow: 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset;
+  width: 122px;
+  height: 37px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) var(--padding-31xl);
+  box-sizing: border-box;
+}
+.button1:hover,
+.button:hover {
+  border-radius: var(--br-mid);
+}
+.vo {
+  margin-block-start: 0;
+  margin-block-end: 1px;
+}
+.op {
+  margin: 0;
+}
+.voOpTxtContainer {
+  line-break: anywhere;
+  width: 100%;
+}
+.text,
+.voOp {
+  position: relative;
+  flex-shrink: 0;
+}
+.voOp {
+  font-size: var(--font-size-lg);
+  letter-spacing: 0.1em;
+  line-height: 6px;
+  font-family: var(--font-press-start-2p);
+  display: flex;
+  align-items: center;
+  width: 55px;
+  height: 32px;
+}
+.text {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 62px;
+}
+.button1,
+.buttonParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.button1 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-smi) var(--padding-31xl);
+  background-color: transparent;
+  position: absolute;
+  top: 0.5px;
+  left: 1195px;
+  border-radius: var(--br-smi);
+  background: radial-gradient(50% 50%at 50% 50%, #a27cf3, #683fea);
+  box-shadow: 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset;
+  width: 142px;
+  height: 36px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.button1:hover {
+  background-color: rgba(83, 37, 232, 0.7);
+}
+.button1:hover,.button:hover {
+border-radius: 17px;
+}
+.button1:active {
+  background-color: #3a12a4;
+}
+.buttonParent {
+  position: absolute;
+  top: 14px;
+  left: calc(50% - 703px);
+  justify-content: flex-start;
+  gap: var(--gap-490xl);
+  width: 100%;
+}
+.headerLight {
+  width: 100%;
+  height: 66px;
+  display: flex;
+  align-content: space-between;
+  max-height: 100%;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

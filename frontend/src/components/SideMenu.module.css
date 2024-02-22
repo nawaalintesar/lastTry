@@ -1,0 +1,39 @@
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.fiBrMenuBurgerIcon {
+  position: absolute;
+  top: 23px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  object-fit: cover;
+  cursor: pointer;
+}
+.hamburgericon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 194px;
+  height: 874px;
+}
+.sideMenu {
+  position: relative;
+  background-color: var(--color-gray-300);
+  width: 194px;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  max-width: 90%;
+}
+.sideMenu.animate {
+  animation: 0.25s ease 0s 1 normal forwards slide-in-left;
+}

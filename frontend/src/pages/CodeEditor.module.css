@@ -1,0 +1,79 @@
+.frameGenericTutorialChild {
+  position: absolute;
+  top: 0;
+  left: 758px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 830px;
+  object-fit: contain;
+}
+.mainWrapper {
+  position: absolute;
+  height: calc(100% - 8px);
+  top: 0;
+  bottom: 8px;
+  left: 211px;
+  width: 548px;
+}
+.javaParent {
+  position: absolute;
+  top: 5px;
+  left: 657px;
+}
+.frameGenericTutorial {
+  position: absolute;
+  height: 81.21%;
+  width: 99.93%;
+  top: 6.79%;
+  right: 0.07%;
+  bottom: 12%;
+  left: 0;
+  display: flex;
+  align-content: stretch;
+  justify-content: stretch;
+}
+.CodeEditor {
+  position: relative;
+  background: linear-gradient(180.46deg, #251849, #251849 0.01%, #18113b);
+  width: 100%;
+  height: 1075px;
+  overflow: hidden;
+}
+.CodeEditor:hover {
+  filter: drop-shadow(0 4px 4px 5px rgba(104, 63, 234, 0.25));
+}
+/* Add these styles to your existing CSS file */
+
+
+
+.CodeEditor:hover {
+  filter: drop-shadow(0 4px 4px 5px rgba(104, 63, 234, 0.25));
+}
+/* Add these styles to your existing CSS file */
+
+
+.customFileNavigation {
+  /* Add your custom styles for FileNavigationContainer in CodeEditor */
+  /* For example, you can set the left property to 0 for positioning it on the left */
+  left: 0;
+  /* Add any other specific styles you need */
+}
+
+.customOutputContainer{
+  position: absolute;
+  height: calc(100% - 8px);
+  top: 0;
+  bottom: 8px;
+  left: 0px;
+  width: 548px;
+}
+
+
+.AnimationContainer{
+  top:-10px;
+  width: 900px;
+  height: 900px;
+  position: relative;
+  left: 750px;
+  
+}

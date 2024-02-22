@@ -1,0 +1,475 @@
+Method Overriding and Overloading
+//Tutorial Description
+A guide on method overriding (redefining a method in a subclass) and method overloading (defining multiple methods with the same name but different parameters) for enhanced functionality. Method Overriding is like a child providing their version of a family recipe. It uses the same ingredients but may have a slightly different procedure.  In OOP, it occurs when a subclass provides a specific implementation for a method already defined in its superclass. 
+Method Overloading is like a chef preparing variations of a dish with the same name but different ingredients. It allows a class to have multiple methods with the same name but different parameters.
+Think of overriding as a feature that allows a subclass to provide a specific implementation for a method defined in its superclass and overloading as the ability to define multiple methods with the same name but different parameters in a class.
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Calculator.java
+//Method overloading
+public class Calculator {
+
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    public double sum(double a, double b) {
+        return a + b;
+   }
+}
+
+***
+Vehicle.java
+//Method Overriding
+class Vehicle {
+    public void move() {
+        System.out.println("The vehicle is moving");
+    }
+}
+***
+Car.java
+class Car extends Vehicle {
+    @Override
+    public void move() {
+        System.out.println("The car is moving");
+    }
+}
+
+//Steps
+Step 1: First lets go over method overloading. The calculator class contains 2 functions. 
+Step 2: Notice how both the functions have the same name “sum”, however they have different return types and different argument data types as well. In the case of multiple functions with different signatures but the same name, the process is referred to as method overloading.
+Step 3: Next to understand method overriding, consider the Vehicle class that contains a function called move().
+Step 4: A class called Car inherits from Vehicle, and provides its own definition for the function move(). Note that the signature of the function has not been changed, it has simply ”overridden” or taken over the operation or functionality of the super class. Overriding is most commonly found in methods where there is inheritance.
+Step 5: Therefore the major differentiating factor between overriding and overloading is that Overriding occurs when a subclass provides a specific implementation for a method already defined in its superclass, while overloading involves defining multiple methods in the same class with different parameter lists.
+------------------------------
+
+//Level 2- Java
+//Code
+***
+Calculator.java
+class Calculator {
+    // Method Overloading
+    int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    double add(double num1, double num2) {
+        return num1 + num2;
+    }
+
+    // Method Overriding
+    void displayMessage() {
+        System.out.println("This is the Calculator class.");
+    }
+}
+***
+ScientificCalculator.java
+class ScientificCalculator extends Calculator {
+    // Method Overriding
+    void displayMessage() {
+        System.out.println("This is the ScientificCalculator class.");
+    }
+
+    // Method Overloading (overloading the add method in the subclass)
+    double add(double num1, double num2, double num3) {
+        return num1 + num2 + num3;
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of Calculator
+        Calculator basicCalculator = new Calculator();
+
+        // Method Overloading - Different signatures
+        int sumInt = basicCalculator.add(5, 10);
+        double sumDouble = basicCalculator.add(5.5, 10.5);
+
+        System.out.println("Sum of integers: " + sumInt);
+        System.out.println("Sum of doubles: " + sumDouble);
+
+        // Create an instance of ScientificCalculator
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+
+        // Method Overriding
+        basicCalculator.displayMessage();  // Output: This is the Calculator class.
+        scientificCalculator.displayMessage();  // Output: This is the ScientificCalculator class.
+
+        // Method Overloading - Different signature in the subclass
+        double sumTriple = scientificCalculator.add(2.0, 3.0, 4.0);
+        System.out.println("Sum of three doubles: " + sumTriple);
+    }
+}
+
+//Steps
+------------------------------
+//Level 3- Java
+//Code
+***
+Processor.java
+
+import java.util.Arrays;
+
+public class Processor {
+
+	public void process(int i, int j) {
+		System.out.printf("Processing two integers:%d, %d", i, j);
+	}
+
+	public void process(int[] ints) {
+		System.out.println("Adding integer array:" + Arrays.toString(ints));
+	}
+
+	public void process(Object[] objs) {
+		System.out.println("Adding integer array:" + Arrays.toString(objs));
+	}
+}
+***
+MathProcessor.java
+class MathProcessor extends Processor {
+
+	@Override
+	public void process(int i, int j) {
+		System.out.println("Sum of integers is " + (i + j));
+	}
+
+	@Override
+	public void process(int[] ints) {
+		int sum = 0;
+		for (int i : ints) {
+			sum += i;
+		}
+		System.out.println("Sum of integer array elements is " + sum);
+	}
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        Processor processor = new Processor();
+        MathProcessor mathProcessor = new MathProcessor();
+
+        // Overloaded method with two integers
+        processor.process(10, 20);  // Output: Processing two integers: 10, 20
+
+        // Overloaded method with an integer array
+        int[] intArray = {1, 2, 3, 4, 5};
+        processor.process(intArray);  // Output: Adding integer array: [1, 2, 3, 4, 5]
+
+        // Overloaded method with an object array
+        Object[] objArray = {"One", "Two", "Three"};
+        processor.process(objArray);  // Output: Adding integer array: [One, Two, Three]
+
+        // Overridden method in MathProcessor for two integers
+        mathProcessor.process(5, 7);  // Output: Sum of integers is 12
+
+        // Overridden method in MathProcessor for an integer array
+        int[] anotherIntArray = {10, 20, 30};
+        mathProcessor.process(anotherIntArray);  // Output: Sum of integer array elements is 60
+    }
+}
+
+//Steps
+------------------------------
+
+//Level 1- Python
+//Code
+***
+main.py
+# Method Overloading 
+class Test:
+    def __init__(self, asdf):
+        self.asdf = asdf
+    
+    def as_method(self, parameter="default"):
+        if parameter == "default":
+            return "asdf"
+        else:
+            return "qewr"
+
+# Example usage
+test_instance = Test("example")
+result1 = test_instance.as_method()          # Calls the first implementation with default parameter
+result2 = test_instance.as_method("custom")
+
+
+# Method Overriding
+class Vehicle:
+    def move(self):
+        print("The vehicle is moving")
+
+class Car(Vehicle):
+    def move(self):
+        print("The car is moving")
+
+//Steps
+Step 1: First lets go over method overloading. The calculator class contains 2 functions. 
+Step 2: Notice how both the functions have the same name “sum”, however they have a different number of arguements. In the case of multiple functions with different signatures but the same name, the process is referred to as method overloading. In Python, function overloading isn't directly supported since data types are not taken into consideration. However, you can achieve similar functionality using default arguments or variable arguments.
+Step 3: Next to understand method overriding, consider the Vehicle class that contains a function called move().
+Step 4: A class called Car inherits from Vehicle, and provides its own definition for the function move(). Note that the signature of the function has not been changed, it has simply ”overridden” or taken over the operation or functionality of the super class. Overriding is most commonly found in methods where there is inheritance.
+Step 5: Therefore the major differentiating factor between overriding and overloading is that Overriding occurs when a subclass provides a specific implementation for a method already defined in its superclass, while overloading involves defining multiple methods in the same class with different parameter lists.
+------------------------------
+
+//Level 2- Python
+//Code
+***
+main.py
+class Calculator:
+    # Method Overloading
+    def add(self, num1, num2):
+        return num1 + num2
+
+    def add(self, num1, num2):
+        return num1 + num2
+
+    # Method Overriding
+    def display_message(self):
+        print("This is the Calculator class.")
+
+
+class ScientificCalculator(Calculator):
+    # Method Overriding
+    def display_message(self):
+        print("This is the ScientificCalculator class.")
+
+    # Method Overloading (overloading the add method in the subclass)
+    def add(self, num1, num2, num3):
+        return num1 + num2 + num3
+
+
+# Create an instance of Calculator
+basic_calculator = Calculator()
+
+# Method Overloading - Different signatures
+sum_int = basic_calculator.add(5, 10)
+sum_double = basic_calculator.add(5.5, 10.5)
+
+print("Sum of integers:", sum_int)
+print("Sum of doubles:", sum_double)
+
+# Create an instance of ScientificCalculator
+scientific_calculator = ScientificCalculator()
+
+# Method Overriding
+basic_calculator.display_message()  # Output: This is the Calculator class.
+scientific_calculator.display_message()  # Output: This is the ScientificCalculator class.
+
+# Method Overloading - Different signature in the subclass
+sum_triple = scientific_calculator.add(2.0, 3.0, 4.0)
+print("Sum of three doubles:", sum_triple)
+
+//Steps
+------------------------------
+//Level 3- Python
+//Code
+***
+main.py
+class Processor:
+    def process(self, i, j):
+        print("Processing two integers:", i, j)
+
+    def process_array(self, ints):
+        print("Adding integer array:", ints)
+
+    def process_object_array(self, objs):
+        print("Adding object array:", objs)
+
+class MathProcessor(Processor):
+    def process(self, i, j):
+        print("Sum of integers is", i + j)
+
+    def process_array(self, ints):
+        total_sum = sum(ints)
+        print("Sum of integer array elements is", total_sum)
+
+if __name__ == "__main__":
+    processor = MathProcessor()
+
+    # Overridden method for two integers
+    processor.process(3, 5)
+
+    # Overridden method for an integer array
+    processor.process_array([1, 2, 3])
+
+//Steps
+------------------------------
+//Level 1- C++
+//Code
+***
+main.cpp
+Method Overriding
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    int sum(int a, int b) {
+        return a + b;
+    }
+
+    double sum(double a, double b) {
+        return a + b;
+    }
+};
+
+int main() {
+    Calculator calc;
+    cout << "Integer Sum: " << calc.sum(5, 7) << endl;
+    cout << "Double Sum: " << calc.sum(3.5, 4.2) << endl;
+    return 0;
+}
+
+
+Method Overloading
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    virtual void move() {
+        cout << "The vehicle is moving" << endl;
+    }
+};
+
+class Car : public Vehicle {
+public:
+    void move() override {
+        cout << "The car is moving" << endl;
+    }
+};
+
+//Steps
+Step 1: First lets go over method overloading. The calculator class contains 2 functions. 
+Step 2: Notice how both the functions have the same name “sum”, however they have different return types and different argument data types as well. In the case of multiple functions with different signatures but the same name, the process is referred to as method overloading.
+Step 3: Next to understand method overriding, consider the Vehicle class that contains a function called move().
+Step 4: A class called Car inherits from Vehicle, and provides its own definition for the function move(). Note that the signature of the function has not been changed, it has simply ”overridden” or taken over the operation or functionality of the super class. Overriding is most commonly found in methods where there is inheritance.
+Step 5: Therefore the major differentiating factor between overriding and overloading is that Overriding occurs when a subclass provides a specific implementation for a method already defined in its superclass, while overloading involves defining multiple methods in the same class with different parameter lists.
+------------------------------
+//Level 2- C++
+//Code
+***
+main.cpp
+#include <iostream>
+
+class Calculator {
+public:
+    // Method Overloading
+    int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    double add(double num1, double num2) {
+        return num1 + num2;
+    }
+
+    // Method Overriding
+    void display_message() {
+        std::cout << "This is the Calculator class." << std::endl;
+    }
+};
+
+class ScientificCalculator : public Calculator {
+public:
+    // Method Overriding
+    void display_message() {
+        std::cout << "This is the ScientificCalculator class." << std::endl;
+    }
+
+    // Method Overloading (overloading the add method in the subclass)
+    double add(double num1, double num2, double num3) {
+        return num1 + num2 + num3;
+    }
+};
+
+int main() {
+    // Create an instance of Calculator
+    Calculator basic_calculator;
+
+    // Method Overloading - Different signatures
+    int sum_int = basic_calculator.add(5, 10);
+    double sum_double = basic_calculator.add(5.5, 10.5);
+
+    std::cout << "Sum of integers: " << sum_int << std::endl;
+    std::cout << "Sum of doubles: " << sum_double << std::endl;
+
+    // Create an instance of ScientificCalculator
+    ScientificCalculator scientific_calculator;
+
+    // Method Overriding
+    basic_calculator.display_message();  // Output: This is the Calculator class.
+    scientific_calculator.display_message();  // Output: This is the ScientificCalculator class.
+
+    // Method Overloading - Different signature in the subclass
+    double sum_triple = scientific_calculator.add(2.0, 3.0, 4.0);
+    std::cout << "Sum of three doubles: " << sum_triple << std::endl;
+
+    return 0;
+}
+
+
+//Steps
+------------------------------
+
+//Level 3- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Processor {
+public:
+    void process(int i, int j) {
+        cout << "Processing two integers: " << i << ", " << j << endl;
+    }
+
+    void process_array(const vector<int>& ints) {
+        int sum = 0;
+        for (int i : ints) {
+            sum += i;
+        }
+        cout << "Sum of integer array elements is " << sum << endl;
+    }
+
+    void process_object_array(const vector<object>& objs) {
+        cout << "Adding object array:" << endl;
+        for (const auto& obj : objs) {
+            // Process object array elements here
+        }
+    }
+};
+
+class MathProcessor : public Processor {
+public:
+    void process(int i, int j) override {
+        cout << "Sum of integers is " << (i + j) << endl;
+    }
+
+    void process_array(const vector<int>& ints) override {
+        int sum = 0;
+        for (int i : ints) {
+            sum += i;
+        }
+        cout << "Sum of integer array elements is " << sum << endl;
+    }
+};
+
+int main() {
+    MathProcessor processor;
+
+    // Overridden method for two integers
+    processor.process(3, 5);
+
+    // Overridden method for an integer array
+    vector<int> intArray = {1, 2, 3};
+    processor.process_array(intArray);
+
+    return 0;
+}
+
+//Steps
+------------------------------

@@ -1,0 +1,751 @@
+Combined Examples
+//Tutorial Description
+This tutorial combines all the OOP concepts covered by the other tutorials with examples that emulate real world scenarios.
+//DescriptionEnd
+//Level 1- Java
+//Code
+***
+Device.java
+interface Device {
+    void operate();
+}
+***
+AbstractDevice.java
+abstract class AbstractDevice implements Device {
+    String brand;
+ 
+    AbstractDevice(String brand) {
+        this.brand = brand;
+    }
+ 
+    @Override
+    public abstract void operate();
+ 
+    @Override
+    public String toString() {
+        return "Brand: " + brand;
+    }
+}
+***
+Phone.java
+class Phone extends AbstractDevice {
+    String model;
+ 
+    Phone(String brand, String model) {
+        super(brand);
+        this.model = model;
+    }
+ 
+    @Override
+    public void operate() {
+        System.out.println(brand + " " + model + " is making a call");
+    }
+}
+***
+Laptop.java
+class Laptop extends AbstractDevice {
+    String model;
+ 
+    Laptop(String brand, String model) {
+        super(brand);
+        this.model = model;
+    }
+ 
+    @Override
+    public void operate() {
+        System.out.println(brand + " " + model + " is running a program");
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        Phone phone = new Phone("Samsung", "Galaxy S21");
+        Laptop laptop = new Laptop("Dell", "XPS 13");
+ 
+        // Check types using instanceof
+        if (phone instanceof AbstractDevice) {
+            ((AbstractDevice) phone).operate();
+            System.out.println(((AbstractDevice) phone).toString());
+        }
+ 
+        if (laptop instanceof AbstractDevice) {
+            ((AbstractDevice) laptop).operate();
+            System.out.println(((AbstractDevice) laptop).toString());
+        }
+    }
+}
+ 
+//Steps 
+Step 1: The interface ‘Device’, declares a single method ‘operate()’. 
+Step 2: The abstract class ‘AbstractDevice’ implements the ‘Device’ interface, which contains a field ‘brand’ to represent the brand of the device. 
+Step 3: A constructor is created within the abstract class which initializes the ‘brand’ field, it implements the ‘operate()’ method as an abstract method, the ‘toString()’ method is overridden to provide a string representation of the device. 
+Step 4: The class ‘Phone’(extends ‘AbstractDevice’), which inherits from the ‘AbstractDevice’. To represent the phone model a new field called ‘model’ is created. 
+Step 5: The class also defines a constructor that calls the constructor of the superclass (‘AbstractDevice’) and the ‘model’ field is initialized. The ‘operate()’ method prints a message which indicates that the phone is making a call. 
+Step 6: This Class ‘laptop’ (extends ‘AbstractDevice’), similar to the ‘Phone’ class this is tailored for laptops. 
+Step 7: It introduces the ‘model’ field to represent the laptop model, and a constructor is defined which calls the constructor of the superclass (‘AbstractDevice’) and initializes the ‘model’ field. The ‘operate()’ method is implemented will print a message which indicates that the laptop is running a program. 
+Step 8: The ‘Main’ class which contains the ‘main’ method creates instances of ‘Phone’ and ‘Laptop’ which uses the ‘instanceof’ operator to check if an object is an instance of a particular class or interface. 
+Step 9: Finally the ‘operate()’ method is called and it prints the string representation for each object if it is an instance of ‘AbstractDevice’. 
+------------------------------
+//Level 2- Java
+//Code
+***
+OnlineStore.java
+import java.util.*;
+
+class OnlineStore {
+    private Map<String, List<Product>> inventory;
+
+    public OnlineStore() {
+        this.inventory = new HashMap<>();
+    }
+
+    public void addProduct(String category, Product product) {
+        inventory.computeIfAbsent(category, k -> new ArrayList<>()).add(product);
+    }
+
+    public List<Product> getProductsInCategory(String category) {
+        return inventory.getOrDefault(category, Collections.emptyList());
+    }
+}
+***
+Product.java
+class Product {
+    private String name;
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create an online store
+        OnlineStore onlineStore = new OnlineStore();
+
+        // Add products to different categories
+        Product laptop = new Product("Laptop", 999.99);
+        Product smartphone = new Product("Smartphone", 499.99);
+        Product tablet = new Product("Tablet", 299.99);
+
+        onlineStore.addProduct("Electronics", laptop);
+        onlineStore.addProduct("Electronics", smartphone);
+        onlineStore.addProduct("Electronics", tablet);
+
+        Product shirt = new Product("Shirt", 29.99);
+        Product jeans = new Product("Jeans", 49.99);
+
+        onlineStore.addProduct("Clothing", shirt);
+        onlineStore.addProduct("Clothing", jeans);
+
+        // Retrieve and display products in different categories
+        System.out.println("Products in Electronics category:");
+        displayProducts(onlineStore.getProductsInCategory("Electronics"));
+
+        System.out.println("\nProducts in Clothing category:");
+        displayProducts(onlineStore.getProductsInCategory("Clothing"));
+
+        // Test a non-existing category
+        System.out.println("\nProducts in Non-existing category:");
+        displayProducts(onlineStore.getProductsInCategory("Non-existing"));
+    }
+
+    private static void displayProducts(List<Product> products) {
+        if (products.isEmpty()) {
+            System.out.println("No products found.");
+        } else {
+            for (Product product : products) {
+                System.out.println("Product: " + product.getName() + ", Price: $" + product.getPrice());
+            }
+        }
+    }
+}
+
+//Steps
+
+------------------------------
+
+
+//Level 3- Java
+//Code
+***
+VehicleManagementInterface.java
+import java.util.ArrayList;
+
+
+interface VehicleManagementInterface {
+    void displayInfo();
+    void modifyVehicle(String colour, String make, String model);
+    void maxSpeed();
+}
+
+***
+Vehicle.java
+abstract class Vehicle implements VehicleManagementInterface {
+    protected String colour;
+    protected String make;
+
+
+    public Vehicle(String colour, String make) {
+        this.colour = colour;
+        this.make = make;
+    }
+
+
+    public String getColour() {
+        return colour;
+    }
+
+
+    public String getMake() {
+        return make;
+    }
+}
+
+***
+Car.java
+class Car extends Vehicle {
+    private String model;
+
+
+    public Car(String colour, String make, String model) {
+        super(colour, make);
+        this.model = model;
+    }
+
+
+    public void displayInfo() {
+        System.out.println("Car - Colour: " + getColour() + ", Make: " + getMake() + ", Model: " + model);
+    }
+
+
+    public void modifyVehicle(String colour, String make, String model) {
+        super.colour = colour;
+        super.make = make;
+        this.model = model;
+    }
+
+
+    public void maxSpeed() {
+        System.out.println("Car's Maximum Speed on Highways: 140 km/h");
+    }
+}
+
+***
+Bus.java
+class Bus extends Vehicle {
+    private String type;
+
+
+    public Bus(String colour, String make, String type) {
+        super(colour, make);
+        this.type = type;
+    }
+
+
+    public void displayInfo() {
+        System.out.println("Bus - Colour: " + getColour() + ", Make: " + getMake() + ", Type: " + type);
+    }
+
+
+    public void modifyVehicle(String colour, String make, String type) {
+        super.colour = colour;
+        super.make = make;
+        this.type = type;
+    }
+
+
+    public void maxSpeed() {
+        System.out.println("Bus's Maximum Speed on Highways: 100 km/h");
+    }
+}
+
+***
+Main.java
+public class Main {
+    public static void main(String[] args) {
+        Vehicle car = new Car("Red", "Toyota", "Corolla");
+        Vehicle bus = new Bus("Blue", "Volvo", "Double Decker");
+
+
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        vehicles.add(car);
+        vehicles.add(bus);
+
+
+        // Modify and display using interface
+        for (VehicleManagementInterface vehicle : vehicles) {
+            vehicle.displayInfo();
+            vehicle.maxSpeed();
+            modifySpecificVehicle(vehicle);
+            System.out.println("After Modification:");
+            vehicle.displayInfo();
+            System.out.println();
+        }
+    }
+
+
+    private static void modifySpecificVehicle(VehicleManagementInterface vehicle) {
+        if (vehicle instanceof Car) {
+            Car car = (Car) vehicle;
+            car.modifyVehicle("Blue", "Honda", "Civic");
+        } else if (vehicle instanceof Bus) {
+            Bus bus = (Bus) vehicle;
+            bus.modifyVehicle("Green", "Mercedes", "Tourismo");
+        }
+    }
+}
+
+
+
+//Steps
+------------------------------
+
+//Level 1- Python
+//Code
+***
+main.py
+from abc import ABC, abstractmethod
+class Device(ABC):
+    def __init__(self, brand):
+        self.brand = brand
+ 
+    @abstractmethod
+    def operate(self):
+        pass
+ 
+class Phone(Device):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+ 
+    def operate(self):
+        print(f"{self.brand} {self.model} is making a call")
+ 
+class Laptop(Device):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+ 
+    def operate(self):
+        print(f"{self.brand} {self.model} is running a program")
+ 
+# Main program
+phone = Phone("Samsung", "Galaxy S21")
+laptop = Laptop("Dell", "XPS 13")
+ 
+# Check types using isinstance
+if isinstance(phone, Phone):
+    phone.operate()
+ 
+if isinstance(laptop, Laptop):
+    laptop.operate()
+ 
+//Steps
+Step 1: Frome the ‘abc’ module we are importing the ‘ABC’ Abstract Base Class as well as the ‘abstractmethod’. An abstract class named ‘Device is created’ which is inheriting from ‘ABC’. Note: Abstract classes provide a common structure for their sub classes and  cannot be instantiated directly.
+Step 2: For any concrete class that is inheriting from ‘Device’ the ‘operate’ method which is an abstract method is implemented.
+Step 3: A concrete class ‘Phone’ is defined which inherits from the abstract class ‘Device’, Concrete classes are used to provide specific implementations for the abstract methods.
+Step 4: The ‘__in__’ method which is a constructor takes ‘brand’ and ‘model’ as its parameters, the call ‘super().__init__(brand)’ initializes the brand attribute using the constructor of ‘Device’ which is our base class.
+Step 5: The ‘operate’ method is implemented to print a message which will indicate that the phone is making a call.
+Step 6: Similar to the ‘Phone’ class a ‘Laptop’ concrete class is defined which is also inheriting from the ‘Device’ abstract class. The ‘__init__’ method is similar to the one in the ‘Phone’ class, which is used to initialize the brand attribute and also introducing a new attribute which is the ‘model’ attribute which shows the laptop brand.
+Step 7: The ‘operate’ method will print that the laptop is running a program.
+Step 8: In the main part of the program, instances which are basically objects are created for both the ‘Phone’ and ‘Laptop’ classes. The object created for the ‘Phone’ class is a phone with the brand “Samsung” having the model “Galaxy S21” and for the ‘Laptop’ class a Laptop with the brand ‘Dell’ having a model ‘XPS 13’ is created.
+Step 9: The ‘isinstance’ function is used to check whether the instances created are of the respective classes (‘Phone’ and ‘Laptop’), this will help ensure that the instances that we are working are correct. When the instance meets the specific type it calls the ‘operate’ method specific to the type of the instance which prints the message (“phone is making a call” or “laptop Is running a program”) depending on the instance.
+------------------------------
+
+//Level 2- Python
+//Code
+***
+main.py
+class Warehouse:
+    def __init__(self):
+        self.products = {}
+
+    def add_product(self, category: str, product: 'Product'):
+        self.products.setdefault(category, []).append(product)
+
+    def get_products_in_category(self, category: str) -> List['Product']:
+        return self.products.get(category, [])
+
+class Product:
+    def __init__(self, name: str, price: float):
+        self.name = name
+        self.price = price
+
+# Testing code for Python
+if __name__ == "__main__":
+    # Create a warehouse
+    warehouse = Warehouse()
+
+    # Add products to different categories
+    laptop = Product("Laptop", 999.99)
+    smartphone = Product("Smartphone", 499.99)
+    tablet = Product("Tablet", 299.99)
+
+    warehouse.add_product("Electronics", laptop)
+    warehouse.add_product("Electronics", smartphone)
+    warehouse.add_product("Electronics", tablet)
+
+    shirt = Product("Shirt", 29.99)
+    jeans = Product("Jeans", 49.99)
+
+    warehouse.add_product("Clothing", shirt)
+    warehouse.add_product("Clothing", jeans)
+
+    # Retrieve and display products in different categories
+    print("Products in Electronics category:")
+    for product in warehouse.get_products_in_category("Electronics"):
+        print(f"Product: {product.name}, Price: ${product.price}")
+
+    print("\nProducts in Clothing category:")
+    for product in warehouse.get_products_in_category("Clothing"):
+        print(f"Product: {product.name}, Price: ${product.price}")
+
+    # Test a non-existing category
+    print("\nProducts in Non-existing category:")
+    for product in warehouse.get_products_in_category("Non-existing"):
+        print(f"Product: {product.name}, Price: ${product.price}")
+
+//Steps
+------------------------------
+
+
+//Level 3- Python
+//Code
+***
+main.py
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    def __init__(self, colour, make):
+        self.colour = colour
+        self.make = make
+
+    @abstractmethod
+    def display_info(self):
+        pass
+
+    @abstractmethod
+    def modify_vehicle(self, colour, make, model):
+        pass
+
+    @abstractmethod
+    def max_speed(self):
+        pass
+
+class Car(Vehicle):
+    def __init__(self, colour, make, model):
+        super().__init__(colour, make)
+        self.model = model
+
+    def display_info(self):
+        print(f"Car - Colour: {self.colour}, Make: {self.make}, Model: {self.model}")
+
+    def modify_vehicle(self, colour, make, model):
+        self.colour = colour
+        self.make = make
+        self.model = model
+
+    def max_speed(self):
+        print("Car's Maximum Speed on Highways: 140 km/h")
+
+class Bus(Vehicle):
+    def __init__(self, colour, make, bus_type):
+        super().__init__(colour, make)
+        self.bus_type = bus_type
+
+    def display_info(self):
+        print(f"Bus - Colour: {self.colour}, Make: {self.make}, Type: {self.bus_type}")
+
+    def modify_vehicle(self, colour, make, bus_type):
+        self.colour = colour
+        self.make = make
+        self.bus_type = bus_type
+
+    def max_speed(self):
+        print("Bus's Maximum Speed on Highways: 100 km/h")
+# Main program
+car = Car("Red", "Toyota", "Corolla")
+bus = Bus("Blue", "Volvo", "Double Decker")
+
+vehicles = [car, bus]
+
+# Modify and display using interface
+for vehicle in vehicles:
+    if isinstance(vehicle, Car):  # Check if the object is an instance of the Car class
+        vehicle.display_info()
+        vehicle.max_speed()
+        vehicle.modify_vehicle("Green", "Mercedes", "Tourismo")
+        print("After Modification:")
+        vehicle.display_info()
+        print()
+    elif isinstance(vehicle, Bus):  # Check if the object is an instance of the Bus class
+        vehicle.display_info()
+        vehicle.max_speed()
+        vehicle.modify_vehicle("Green", "Mercedes", "Luxury Bus")
+
+//Steps
+------------------------------
+
+//Level 1- C++
+//Code
+***
+main.cpp
+#include <iostream>
+using namespace std;
+ 
+class Device {
+public:
+    virtual void operate() = 0;
+    virtual string toString() = 0;
+};
+ 
+class AbstractDevice : public Device {
+public:
+    string brand;
+ 
+    AbstractDevice(string brand) : brand(brand) {}
+ 
+    virtual void operate() = 0;
+ 
+    virtual string toString() {
+        return "Brand: " + brand;
+    }
+};
+ 
+class Phone : public AbstractDevice {
+public:
+    string model;
+ 
+    Phone(string brand, string model) : AbstractDevice(brand), model(model) {}
+ 
+    void operate() override {
+        cout << brand + " " + model + " is making a call" << endl;
+    }
+ 
+    string toString() override {
+        return AbstractDevice::toString() + ", Model: " + model;
+    }
+};
+ 
+class Laptop : public AbstractDevice {
+public:
+    string model;
+ 
+    Laptop(string brand, string model) : AbstractDevice(brand), model(model) {}
+ 
+    void operate() override {
+        cout << brand + " " + model + " is running a program" << endl;
+    }
+ 
+    string toString() override {
+        return AbstractDevice::toString() + ", Model: " + model;
+    }
+};
+ 
+int main() {
+    Phone phone("Samsung", "Galaxy S21");
+    Laptop laptop("Dell", "XPS 13");
+ 
+    // Check types using dynamic_cast
+    if (dynamic_cast<AbstractDevice*>(&phone)) {
+        dynamic_cast<AbstractDevice*>(&phone)->operate();
+        cout << dynamic_cast<AbstractDevice*>(&phone)->toString() << endl;
+    }
+ 
+    if (dynamic_cast<AbstractDevice*>(&laptop)) {
+        dynamic_cast<AbstractDevice*>(&laptop)->operate();
+        cout << dynamic_cast<AbstractDevice*>(&laptop)->toString() << endl;
+    }
+ 
+    return 0;
+}
+ 
+//Steps
+Step 1: We define an abstract class ‘Device’ with two pure virtual functions(abstract) ‘operate’ and ‘toString’ ( A virtual function in C++ is a function that is declared in the base class but has no implementation, it has to be implemented by any derived class ). This makes ‘Device’ an abstract class, any class that inherits from ‘Device’ must provide implementations for the functions.
+Step 2: ‘AbstractDevice’ which is an abstract class is created, and it inherits from ‘Device’. It contains a ‘brand’ attribute as well as constructor to initialize it. The class has the function ‘operate’ and it has to be implemented by any concrete subclass. A concrete subclass is a type of class that provides the implementations for all the abstract methods, which are inherited from the abstract base class which makes it an actual class.
+Step 3: The default implementation of the ‘toString’ implementation is defined, which return a string representation of a brand.
+Step 4: Two concrete classes ‘Phone’ and ‘Laptop’ are defined, both inheriting from ‘AbstractDevice’. Each class has its constructor, initializes the brand via the base class constructor. A new attribute ‘model’ is added. The implementations of the pure virtual functions(abstract) functions which are ‘operate’ and ‘toString’ are provided.
+Step 5: In the main program the objects for ‘Phone’ and ‘Laptop’ classes are created.
+Step 6: The ‘dynamic_cast’ operator is used to check if these objects can be cast to a pointer of type ‘AbstractDevice’. If the ‘dynamic_cast’ is successful, the ‘operate’ and ‘toString’ methods are called thus demonstrating polymorphism. 
+------------------------------
+
+//Level 2- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+class Product {
+private:
+    std::string name;
+    double price;
+
+public:
+    Product(const std::string& name, double price) : name(name), price(price) {}
+
+    std::string getName() const {
+        return name;
+    }
+
+    double getPrice() const {
+        return price;
+    }
+};
+
+class Warehouse {
+private:
+    std::unordered_map<std::string, std::vector<Product>> products;
+
+public:
+    void addProduct(const std::string& category, const Product& product) {
+        products[category].push_back(product);
+    }
+
+    std::vector<Product> getProductsInCategory(const std::string& category) const {
+        auto it = products.find(category);
+        return it != products.end() ? it->second : std::vector<Product>();
+    }
+};
+
+int main() {
+    // Create a warehouse
+    Warehouse warehouse;
+
+    // Add products to different categories
+    Product laptop("Laptop", 999.99);
+    Product smartphone("Smartphone", 499.99);
+    Product tablet("Tablet", 299.99);
+
+    warehouse.addProduct("Electronics", laptop);
+    warehouse.addProduct("Electronics", smartphone);
+    warehouse.addProduct("Electronics", tablet);
+
+    Product shirt("Shirt", 29.99);
+    Product jeans("Jeans", 49.99);
+
+    warehouse.addProduct("Clothing", shirt);
+    warehouse.addProduct("Clothing", jeans);
+
+    // Retrieve and display products in different categories
+    std::cout << "Products in Electronics category:" << std::endl;
+    for (const auto& product : warehouse.getProductsInCategory("Electronics")) {
+        std::cout << "Product: " << product.getName() << ", Price: $" << product.getPrice() << std::endl;
+    }
+
+    std::cout << "\nProducts in Clothing category:" << std::endl;
+    for (const auto& product : warehouse.getProductsInCategory("Clothing")) {
+        std::cout << "Product: " << product.getName() << ", Price: $" << product.getPrice() << std::endl;
+    }
+
+    std::cout << "\nProducts in Non-existing category:" << std::endl;
+    for (const auto& product : warehouse.getProductsInCategory("Non-existing")) {
+        std::cout << "Product: " << product.getName() << ", Price: $" << product.getPrice() << std::endl;
+    }
+
+    return 0;
+}
+
+//Steps
+------------------------------
+
+//Level 3- C++
+//Code
+***
+main.cpp
+#include <iostream>
+#include <vector>
+
+class Vehicle {
+public:
+    Vehicle(std::string colour, std::string make) : colour(colour), make(make) {}
+
+    virtual void display_info() = 0;
+
+    virtual void modify_vehicle(std::string colour, std::string make, std::string model) = 0;
+
+    virtual void max_speed() = 0;
+
+protected:
+    std::string colour;
+    std::string make;
+};
+
+class Car : public Vehicle {
+public:
+    Car(std::string colour, std::string make, std::string model) : Vehicle(colour, make), model(model) {}
+
+    void display_info() override {
+        std::cout << "Car - Colour: " << colour << ", Make: " << make << ", Model: " << model << std::endl;
+    }
+
+    void modify_vehicle(std::string colour, std::string make, std::string model) override {
+        this->colour = colour;
+        this->make = make;
+        this->model = model;
+    }
+
+    void max_speed() override {
+        std::cout << "Car's Maximum Speed on Highways: 140 km/h" << std::endl;
+    }
+
+private:
+    std::string model;
+};
+
+class Bus : public Vehicle {
+public:
+    Bus(std::string colour, std::string make, std::string bus_type) : Vehicle(colour, make), bus_type(bus_type) {}
+
+    void display_info() override {
+        std::cout << "Bus - Colour: " << colour << ", Make: " << make << ", Type: " << bus_type << std::endl;
+    }
+
+    void modify_vehicle(std::string colour, std::string make, std::string bus_type) override {
+        this->colour = colour;
+        this->make = make;
+        this->bus_type = bus_type;
+    }
+
+    void max_speed() override {
+        std::cout << "Bus's Maximum Speed on Highways: 100 km/h" << std::endl;
+    }
+
+private:
+    std::string bus_type;
+};
+
+int main() {
+    Car car("Red", "Toyota", "Corolla");
+    Bus bus("Blue", "Volvo", "Double Decker");
+
+    std::vector<Vehicle *> vehicles = {&car, &bus};
+
+    // Modify and display using interface
+    for (auto vehicle : vehicles) {
+        vehicle->display_info();
+        vehicle->max_speed();
+        vehicle->modify_vehicle("Green", "Mercedes", "Tourismo");
+        std::cout << "After Modification:" << std::endl;
+        vehicle->display_info();
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
+
+//Steps
+------------------------------

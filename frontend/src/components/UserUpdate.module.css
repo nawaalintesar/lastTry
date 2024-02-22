@@ -1,0 +1,192 @@
+.frame {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 190px;
+}
+.firstName {
+  position: relative;
+  top: 21px;
+  left: 0;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  width: 152px;
+  height: 13px;
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #2f225b inset !important;
+  }
+}
+.firstNameGroup,
+.lastName {
+  position: absolute;
+  top: 67px;
+  left: 163px;
+  width: 830px;
+  height: 52px;
+}
+.lastName {
+  top: 22px;
+  left: 0;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  width: 152px;
+  height: 13px;
+}
+.firstNameGroup{
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #2f225b inset !important;
+  }
+}
+.frame1 {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  -webkit-box-shadow:0 0 0 100px #fb902c inset; 
+  box-shadow: #fb902c;
+  top: 0;
+  left: 192px;
+}
+.emailAddress,
+.lastNameGroup {
+  position: absolute;
+  top: 189px;
+  left: 161px;
+  width: 832px;
+  height: 52px;
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #2f225b inset !important;
+  }
+}
+.emailAddress {
+  top: 7px;
+  left: 0;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  width: 194px;
+  height: 41px;
+  mix-blend-mode: normal;
+  
+}
+.frame2 {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 193px;
+}
+.groupemailAddressGroup,
+.phoneNumber {
+  position: absolute;
+  top: 311px;
+  left: 160px;
+  width: 833px;
+  height: 52px;
+}
+.groupemailAddressGroup{
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #2f225b inset !important;
+  }
+}
+.phoneNumber {
+  top: 13px;
+  left: 0;
+  line-height: 6px;
+  display: flex;
+  align-items: center;
+  width: 229px;
+  height: 23px;
+  mix-blend-mode: normal;
+}
+.phoneNumberGroup {
+  position: absolute;
+  top: 433px;
+  left: 161px;
+  width: 832px;
+  height: 52px;
+}
+.update {
+  position: relative;
+  font-weight: 600;
+}
+.button,
+.updateButtonGroup {
+  position: absolute;
+  width: 152px;
+  height: 36px;
+}
+.button {
+  top: 0;
+  left: 0;
+  border-radius: var(--br-8xs);
+  background: linear-gradient(180deg, #fb902c 11.46%, #fda905 58.85%);
+  box-shadow: 0 0 1px 4px rgba(255, 255, 255, 0.1),
+    0-4px 2px rgba(0, 0, 0, 0.25) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi) 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.button:hover {
+  border-radius: var(--br-3xs);
+}
+.updateButtonGroup {
+  top: 450px;
+  left: 841px;
+  font-size: var(--font-size-base);
+  font-family: var(--font-poppins);
+}
+.doYouWish {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 600;
+}
+.clickHere,
+.deleteAccountGroup {
+  position: absolute;
+  font-size: var(--font-size-base);
+  font-family: var(--font-poppins);
+}
+.clickHere {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 0;
+  left: 303px;
+  font-weight: 600;
+  color:#8a2be2;/* var(--color-blueviolet); */
+  text-align: left;
+  display: inline-block;
+}
+.deleteAccountGroup {
+  top: 455px;
+  left: 353px;
+  width: 385px;
+  height: 24px;
+}
+.firstNameGroupParent {
+  position: absolute;
+  top: 290px;
+  left: 133px;
+  border-radius: var(--br-lg);
+  background-color: var(--color-darkslateblue-200);
+  width: 100%;
+  height: 607px;
+  align-content: stretch;
+  display: flex;
+  max-width: 100%;
+  justify-content: stretch;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+  font-family: var(--font-pt-sans);
+}

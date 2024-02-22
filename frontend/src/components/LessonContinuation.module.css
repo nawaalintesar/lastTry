@@ -1,0 +1,148 @@
+.lessonContinuation1 {
+  position: absolute;
+  top: calc(50% - 187.5px);
+  left: calc(50% - 126.5px);
+  font-weight: 600;
+}
+.welcomeBack {
+  margin: 0;
+}
+.welcomeBackChooseContainer {
+  position: absolute;
+  top: calc(50% - 123.5px);
+  left: calc(50% - 244.5px);
+  font-size: var(--font-size-smi);
+  font-weight: 300;
+  display: inline-block;
+  width: 489px;
+}
+.frameChild {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-gray-100);
+  position: absolute;
+  top: calc(50% - 40.5px);
+  left: calc(50% - 225px);
+  border-radius: var(--br-3xs);
+  width: 450px;
+  height: 81px;
+}
+.frameChild:hover,
+.frameInner:hover,
+.frameItem:hover {
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: 4d4a60;
+}
+.level1 {
+  position: absolute;
+  top: calc(50% - 15.2px);
+  left: calc(50% - 24px);
+  font-size: var(--font-size-xl);
+  font-weight: 300;
+  font-family: var(--font-poppins);
+  color: var(--color-lightsteelblue-100);
+  text-align: center;
+}
+.frameItem,
+.rectangleParent {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  width: 450px;
+}
+.rectangleParent {
+  background-color: transparent;
+  top: -15px;
+  left: 0;
+  height: 81px;
+}
+.frameItem {
+  background-color: var(--color-gray-100);
+  top: calc(50% - 41px);
+  left: calc(50% - 225px);
+  border-radius: var(--br-3xs);
+  height: 82px;
+}
+.level2 {
+  position: absolute;
+  top: calc(50% - 11.5px);
+  left: calc(50% - 27px);
+  font-weight: 300;
+}
+.frameInner,
+.rectangleGroup {
+  position: absolute;
+  width: 450px;
+}
+.rectangleGroup {
+  top: 92px;
+  left: 0;
+  height: 82px;
+}
+.frameInner {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-gray-100);
+  top: calc(50% - 41.5px);
+  left: calc(50% - 225px);
+  border-radius: var(--br-3xs);
+  height: 83px;
+}
+.level3 {
+  position: absolute;
+  top: calc(50% - 11.7px);
+  left: calc(50% - 27px);
+  font-weight: 300;
+}
+.rectangleContainer {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 450px;
+  height: 83px;
+}
+.frameForLevels {
+  position: absolute;
+  top: calc(50% - 27.5px);
+  left: calc(50% - 224.5px);
+  width: 450px;
+  height: 259px;
+  font-size: var(--font-size-xl);
+  color: var(--color-lightsteelblue-100);
+}
+.pagecrossIcon {
+  position: absolute;
+  top: 0;
+  left: 466px;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+.lessonContinuationParent {
+  position: relative;
+  width: 489px;
+  height: 509px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.lessonContinuation {
+  border-radius: var(--br-6xl);
+  background-color: var(--color-gray-200);
+  height: 572px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 19px;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: center;
+  font-size: var(--font-size-6xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

@@ -1,0 +1,93 @@
+@keyframes shadow-drop-bottom {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+  }
+}
+.inheritencetutcardChild {
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-darkslategray-300);
+  width: 200px;
+  height: 240px;
+}
+.inheritencetutcardItem {
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  border-radius: var(--br-xl) var(--br-xl) 0 0;
+  background:  var(--tutorial-gradient);
+  width: 200px;
+  height: 126px;
+}
+.enablesANew,
+.inheritance {
+  position: absolute;
+  font-weight: 500;
+  display: inline-block;
+}
+.enablesANew {
+  top: 161px;
+  left: 20px;
+  font-size: var(--font-size-2xs);
+  letter-spacing: 0.01em;
+  line-height: 100%;
+  color: var(--color-darkgray);
+  width: 175px;
+}
+.inheritance {
+  top: 137px;
+  left: 20px;
+  line-height: 110%;
+  width: 250px;
+  height: 13.4px;
+}
+.inheritencetutcardInner {
+  top: 109px;
+  border-radius: var(--br-21xl);
+  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff), #fff;
+  width: 180px;
+  height: 6px;
+}
+.div,
+.inheritencetutcardInner,
+.rectangleDiv {
+  position: absolute;
+  left: 19px;
+}
+.rectangleDiv {
+  top: 109px;
+  border-radius: var(--br-21xl) 0 0 var(--br-21xl);
+  background-color: var(--color-midnightblue-100);
+  width: 54px;
+  height: 6px;
+}
+.div {
+  top: 93px;
+  line-height: 110%;
+  font-weight: 500;
+}
+.inheritencetutcard {
+  width: 225px;
+  height: 240px;
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+
+
+
+.inheritencetutcard:hover {
+  filter: drop-shadow(0 15px 30px var(--hover-color)); /* Adjust the spread-radius value as needed */
+  
+  transform: scale(1.05); /* Increase the scale on hover */
+  transition: transform 0.3s ease; /* Add a smooth transition */
+  z-index: 1; /* Ensure it's above other elements */
+}
